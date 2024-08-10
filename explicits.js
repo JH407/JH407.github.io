@@ -11,7 +11,7 @@ define(['questAPI'], function(Quest){
         decline: true,
         declineText: isTouch ? 'Weiger' : 'Wil ik liever niet beantwoorden', 
         autoFocus:true, 
-        progressBar:  'Page <%= pagesMeta.number %> out of 4'
+        progressBar:  'Page <%= pagesMeta.number %> out of 5'
     });
 	
     /**
