@@ -71,6 +71,12 @@ define(['managerAPI',
             title: 'Intro',
             header: 'Welcome'
         }],
+	        
+	explicits: [{
+            type: 'quest',
+            name: 'explicits',
+            scriptUrl: 'explicits.js'
+        }],
 	    
         raceiat_instructions: [{
             inherit: 'instructions',
@@ -84,12 +90,6 @@ define(['managerAPI',
             type: 'time',
             name: 'raceiat',
             scriptUrl: 'raceiat.js'
-        }],
-	    
-	explicits: [{
-            type: 'quest',
-            name: 'explicits',
-            scriptUrl: 'explicits.js'
         }],
 	    
         lastpage: [{
