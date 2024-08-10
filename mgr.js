@@ -15,46 +15,46 @@ define(['managerAPI',
     API.addSettings('skip',true);
 
     //Randomly select which of two sets of category labels to use.
-    let raceSet = API.shuffle(['a','b'])[0];
-    let blackLabels = [];
-    let whiteLabels = [];
+    let genderSet = API.shuffle(['a','b'])[0];
+    let transgenderLabels = [];
+    let cisgenderLabels = [];
 
-    if (raceSet == 'a') {
-        blackLabels.push('African Americans');
-        whiteLabels.push('European Americans');
+    if (genderSet == 'a') {
+        transgenderLabels.push('Transgender personen');
+        cisgenderLabels.push('Cisgender personen');
     } else {
-        blackLabels.push('Black people');
-        whiteLabels.push('White people');
+        transgenderLabels.push('Transgender personen');
+        cisgenderLabels.push('Cisgender personen');
     }
 
     API.addGlobal({
-        raceiat:{},
+        genderiat:{},
         //YBYB: change when copying back to the correct folder
         baseURL: './images/',
-        raceSet:raceSet,
-        blackLabels:blackLabels,
-        whiteLabels:whiteLabels,
+        genderSet:genderSet,
+        transgenderLabels:transgenderLabels,
+        cisgenderLabels:cisgenderLabels,
         //Select randomly what attribute words to see. 
         //Based on Axt, Feng, & Bar-Anan (2021).
         posWords : API.shuffle([
-            'Love', 'Cheer', 'Friend', 'Pleasure',
-            'Adore', 'Cheerful', 'Friendship', 'Joyful', 
-            'Smiling','Cherish', 'Excellent', 'Glad', 
-            'Joyous', 'Spectacular', 'Appealing', 'Delight', 
-            'Excitement', 'Laughing', 'Attractive','Delightful', 
-            'Fabulous', 'Glorious', 'Pleasing', 'Beautiful', 
-            'Fantastic', 'Happy', 'Lovely', 'Terrific', 
-            'Celebrate', 'Enjoy', 'Magnificent', 'Triumph'
+	    'Liefde', 'Gelukkig', 'Vriendschap', 'Vrede',
+            'Beeldschoon', 'Geluk', 'Dolblij', 'Blij', 
+            'Verliefd', 'Heerlijk', 'Lachen', 'Zalig', 
+            'Prachtig', 'Blijdschap', 'Vreugde', 'Vrolijkheid', 
+            'Geliefd', 'Lief', 'Positief', 'Super', 
+            'Plezier', 'Zonneschijn', 'Stralend', 
+            'Aantrekkelijk', 'Enthousiast', 'Feest', 
+            'Perfect', 'Wonder', 'Zon', 'Talentvol'
         ]), 
         negWords : API.shuffle([
-            'Abuse', 'Grief', 'Poison', 'Sadness', 
-            'Pain', 'Despise', 'Failure', 'Nasty', 
-            'Angry', 'Detest', 'Horrible', 'Negative', 
-            'Ugly', 'Dirty', 'Gross', 'Evil', 
-            'Rotten','Annoy', 'Disaster', 'Horrific',  
-            'Scorn', 'Awful', 'Disgust', 'Hate', 
-            'Humiliate', 'Selfish', 'Tragic', 'Bothersome', 
-            'Hatred', 'Hurtful', 'Sickening', 'Yucky'
+	    'Doodziek', 'Depressief', 'Doodsangst', 'Haat', 
+            'Misbruik', 'Stervend', 'Verminkt', 'Fataal', 
+            'Haten', 'Ramp', 'Trauma', 'Pesten',
+            'Begrafenis', 'Ongelukkig', 'Levenloos', 
+            'Leugenaar', 'Eenzaamheid', 'Verwoesten', 'Failliet',  
+            'Walging', 'Agressief', 'Mislukking', 'Mismaakt', 
+            'Vernedering', 'Onbetrouwbaar', 'Stelen', 'Wanhoop', 
+            'Vijand', 'Armoede', 'Pijn', 'Bedrog'
         ])
     });
 
@@ -110,13 +110,13 @@ define(['managerAPI',
         }],
 		
 		//This task waits until the data are sent to the server.
-        uploading: uploading_task({header: 'just a moment', body:'Please wait, sending data... '})
+        uploading: uploading_task({header: 'Een moment,', body:'Uw gegevens worden opgeslagen, een moment geduld alstublieft... '})
     });
 
     API.addSequence([
         { type: 'isTouch' }, //Use Minno's internal touch detection mechanism. 
         
-        { type: 'post', path: ['$isTouch', 'raceSet', 'blackLabels', 'whiteLabels'] },
+        { type: 'post', path: ['$isTouch', 'genderSet', 'transgenderLabels', 'cisgenderLabels'] },
 
         // apply touch only styles
         {
@@ -164,8 +164,8 @@ define(['managerAPI',
                 {
                     mixer: 'wrapper',
                     data: [
-                        {inherit: 'raceiat_instructions'},
-                        {inherit: 'raceiat'}
+                        {inherit: 'genderiat_instructions'},
+                        {inherit: 'genderiat'}
                     ]
                 }
             ]
