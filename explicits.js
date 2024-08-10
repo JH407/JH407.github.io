@@ -36,6 +36,11 @@ define(['questAPI'], function(Quest){
         type: 'selectOne'
     });
 	
+	  API.addQuestionsSet('basicText',{
+        inherit :'basicQ',
+        type: 'text'
+    });
+	
     API.addQuestionsSet('basicDropdown',{
         inherit :'basicQ',
         type : 'dropdown',
