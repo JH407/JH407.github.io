@@ -66,28 +66,33 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('attributes7',{
         inherit : 'basicSelect',
         name: 'attributes7',
-        stem: 'Which statement best describes you?',
+        stem: 'Welk statement past het best bij u?',
         answers: [
-            {text:'Ik heb een sterke voorkeur voor <%= global.whiteLabels %> boven <%= global.blackLabels %>.',value:7},
-            {text:'Ik heb een matige voorkeur voor <%= global.whiteLabels %> boven <%= global.blackLabels %>.',value:6},
-            {text:'Ik heb een lichte voorkeur voor<%= global.whiteLabels %> boven <%= global.blackLabels %>.',value:5},
-            {text:'Ik heb tussen <%= global.whiteLabels %> en <%= global.blackLabels %> geen voorkeur.',value:4},
-            {text:'Ik heb een lichte voorkeur voor <%= global.blackLabels %> boven <%= global.whiteLabels %>.',value:3},
-            {text:'Ik heb een matige voorkeur voor  <%= global.blackLabels %> boven <%= global.whiteLabels %>.',value:2},
-            {text:'Ik heb een sterke voorkeur voor  <%= global.blackLabels %> boven <%= global.whiteLabels %>.',value:1}
+            {text:'Ik heb een sterke voorkeur voor <%= global.cisgenderLabels %> boven <%= global.transgenderLabels %>.',value:7},
+            {text:'Ik heb een matige voorkeur voor <%= global.cisgenderLabels %> boven <%= global.transgenderLabels %>.',value:6},
+            {text:'Ik heb een lichte voorkeur voor<%= global.cisgenderLabels %> boven <%= global.transgenderLabels %>.',value:5},
+            {text:'Ik heb tussen <%= global.cisgenderLabels %> en <%= global.transgenderLabels %> geen voorkeur.',value:4},
+            {text:'Ik heb een lichte voorkeur voor <%= global.transgenderLabels %> boven <%= global.cisgenderLabels %>.',value:3},
+            {text:'Ik heb een matige voorkeur voor  <%= global.transgenderLabels %> boven <%= global.cisgenderLabels %>.',value:2},
+            {text:'Ik heb een sterke voorkeur voor  <%= global.transgenderLabels %> boven <%= global.cisgenderLabels %>.',value:1}
         ]
     });
+	  API.addQuestionsSet('age', {
+        inherit : 'basicText',
+        name: 'age',
+        stem: 'Wat is uw geboortejaar?'
+    })
 	
-   	 API.addQuestionsSet('thermBlack',{
+   	 API.addQuestionsSet('thermTransgender',{
        		inherit : 'therm',
-       	 	name: 'Tblack_0to10',
-        	stem: 'Hoe warm of koud voel je je ten opzichte van <b><%= global.blackLabels %></b>?'
+       	 	name: 'Ttransgender_0to10',
+        	stem: 'Hoe warm of koud voel je je ten opzichte van <b><%= global.transgenderLabels %></b>?'
     });
 
-    	API.addQuestionsSet('thermWhite',{
+    	API.addQuestionsSet('thermCisgender',{
         	inherit : 'therm',
-        	name: 'Twhite_0to10',
-        	stem: 'Hoe warm of koud voel je je ten opzichte van <b><%= global.whiteLabels %></b>?'
+        	name: 'Tcisgender_0to10',
+        	stem: 'Hoe warm of koud voel je je ten opzichte van <b><%= global.cisgenderLabels %></b>?'
     });
 
     API.addSequence([
@@ -100,17 +105,21 @@ define(['questAPI'], function(Quest){
                     data : [
                         {
                             inherit:'basicPage', 
-                            questions: {inherit:'thermBlack'}
+                            questions: {inherit:'thermTransgender'}
                         },
                         {
                             inherit:'basicPage', 
-                            questions: {inherit:'thermWhite'}							
+                            questions: {inherit:'thermCisgender'}							
                         }
                     ]
                 },
                 {
                     inherit:'basicPage', 
                     questions: {inherit:'attributes7'}
+                },
+		{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'age'}]
                 }
             ]
         }
