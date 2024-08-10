@@ -72,12 +72,6 @@ define(['managerAPI',
             header: 'Welcome'
         }],
 	    
-	    explicits: [{
-            type: 'quest',
-            name: 'explicits',
-            scriptUrl: 'explicits.js'
-        }],
-	    
         genderiat_instructions: [{
             inherit: 'instructions',
             name: 'genderiat_instructions',
@@ -86,6 +80,12 @@ define(['managerAPI',
             header: 'Implicit Association Test'
         }],
 
+	    explicits: [{
+            type: 'quest',
+            name: 'explicits',
+            scriptUrl: 'explicits.js'
+        }],
+	    
         genderiat: [{
             type: 'time',
             name: 'genderiat',
