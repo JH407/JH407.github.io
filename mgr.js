@@ -80,7 +80,7 @@ define(['managerAPI',
             header: 'Implicit Association Test'
         }],
 
-	    explicits: [{
+	explicits: [{
             type: 'quest',
             name: 'explicits',
             scriptUrl: 'explicits.js'
