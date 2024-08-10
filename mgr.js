@@ -72,12 +72,6 @@ define(['managerAPI',
             header: 'Welcome'
         }],
 	    
-  	personitems: [{
-            type: 'quest',
-            name: 'personitems',
-            scriptUrl: 'personitems.js'
-        }],
-	    
         raceiat_instructions: [{
             inherit: 'instructions',
             name: 'raceiat_instructions',
