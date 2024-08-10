@@ -27,7 +27,7 @@ define(['questAPI'], function(Quest){
         },
         autoSubmit:'true',
         numericValues:'true',
-        help: '<%= pagesMeta.number < 3 %>',
+        help: '<%= pagesMeta.number < 5 %>',
         helpText: 'Tip: Klik twee maal op uw keuze om snel te antwoorden.'
     });
 
@@ -111,6 +111,29 @@ define(['questAPI'], function(Quest){
             {text:'Specialist',value:1},
         ]
     });
+	API.addQuestionsSet('transgender',{
+     	   inherit : 'basicSelect',
+      	  name: 'cisortrans',
+      	  stem: 'Bent u cisgender of transgender? <br/><br/> Om de termen nogmaals op te helderen: Met cisgender wordt bedoeld dat er een match is tussen het geslacht dat bij geboorte is bepaald en de genderidentiteit die iemand nu heeft. Transgender betekent dat er geen match is tussen het geslacht bepaald bij geboorte en iemands genderidentiteit.',
+      	  answers: [
+            {text:'Cisgender',value:2},
+            {text:'Transgender',value:1},
+        ]
+    });
+	
+	API.addQuestionsSet('genderidentity',{
+     	   inherit : 'basicSelect',
+      	  name: 'genderidentity',
+	stem: 'Hoe zou u uw het best genderidentiteit omschrijven?',
+	answers: [
+            {text:'Geen van alle passen bij mij',value:6},
+            {text:'Genderfluïde',value:5},
+	    {text:'Genderqueer',value:4},
+            {text:'Non-Binair',value:3},
+	    {text:'Man',value:2},
+            {text:'Vrouw',value:1},
+        ]
+    });
     API.addSequence([
         {
             mixer : 'random', 
@@ -140,6 +163,14 @@ define(['questAPI'], function(Quest){
 		{
                     inherit:'basicPage', 
                     questions: [{inherit:'education'}]
+                },
+		{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'transgender'}]
+                },
+		{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'genderidentity'}]
                 }
             ]
         }
