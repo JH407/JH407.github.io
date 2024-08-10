@@ -76,15 +76,16 @@ define(['managerAPI',
             inherit: 'instructions',
             name: 'genderiat_instructions',
             templateUrl: 'genderiat_instructions.jst',
-            title: 'IAT Instructions',
+            title: 'IAT Instructies',
             header: 'Implicit Association Test'
         }],
 
-	    explicits: [{
+	explicits: [{
             type: 'quest',
             name: 'explicits',
             scriptUrl: 'explicits.js'
         }],
+	    
         genderiat: [{
             type: 'time',
             name: 'genderiat',
@@ -98,7 +99,7 @@ define(['managerAPI',
             title: 'End',
             //Uncomment the following if you want to end the study here.
             //last:true, 
-            header: 'You have completed the study'
+            header: 'Einde'
         }], 
         
         //Use if you want to redirect the participants elsewhere at the end of the study
