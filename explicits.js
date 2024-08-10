@@ -9,9 +9,9 @@ define(['questAPI'], function(Quest){
         noSubmit:false, //Change to true if you don't want to show the submit button.
         header: 'Questionnaire',
         decline: true,
-        declineText: isTouch ? 'Weiger' : 'Weiger te antwoorden', 
+        declineText: isTouch ? 'Weiger' : 'Wil ik liever niet beantwoorden', 
         autoFocus:true, 
-        progressBar:  'Page <%= pagesMeta.number %> out of 3'
+        progressBar:  'Page <%= pagesMeta.number %> out of 4'
     });
 	
     /**
@@ -23,12 +23,12 @@ define(['questAPI'], function(Quest){
         errorMsg: {
             required: isTouch 
                 ? 'Selecteer een antwoord of klik op \'Weiger\'' 
-                : 'Selecteer een antwoord of klik op \'Weiger te antwoorden\''
+                : 'Selecteer een antwoord of klik op \'Wil ik liever niet beantwoorden\''
         },
         autoSubmit:'true',
         numericValues:'true',
         help: '<%= pagesMeta.number < 3 %>',
-        helpText: 'Tip voor een snel antwoord: Klik twee maal op het antwoord.'
+        helpText: 'Tip: Klik twee maal op uw keuze om snel te antwoorden.'
     });
 
     API.addQuestionsSet('basicSelect',{
