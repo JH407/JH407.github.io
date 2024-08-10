@@ -135,7 +135,7 @@ define(['questAPI'], function(Quest){
         ]
 		API.addQuestionsSet('patienten',{
      	   inherit : 'basicSelect',
-      	  name: 'patiente',
+      	  name: 'patienten',
       	  stem: 'Heeft u patiënten die zich als transgender identificeren?',
       	  answers: [
             {text:'Ja',value:2},
@@ -177,14 +177,15 @@ define(['questAPI'], function(Quest){
                     inherit:'basicPage', 
                     questions: [{inherit:'transgender'}]
                 },
-		    {
-                    inherit:'basicPage', 
-                    questions: [{inherit:'patienten'}]
-                },
 		{
                     inherit:'basicPage', 
                     questions: [{inherit:'genderidentity'}]
+                },
+		{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'patienten'}]
                 }
+		
             ]
         }
     ]);
