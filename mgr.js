@@ -71,25 +71,24 @@ define(['managerAPI',
             title: 'Intro',
             header: 'Welcome'
         }],
-	        
-	explicits: [{
-            type: 'quest',
-            name: 'explicits',
-            scriptUrl: 'explicits.js'
-        }],
 	    
-        raceiat_instructions: [{
+        genderiat_instructions: [{
             inherit: 'instructions',
-            name: 'raceiat_instructions',
-            templateUrl: 'raceiat_instructions.jst',
+            name: 'genderiat_instructions',
+            templateUrl: 'genderiat_instructions.jst',
             title: 'IAT Instructions',
             header: 'Implicit Association Test'
         }],
 
-        raceiat: [{
+	    explicits: [{
+            type: 'quest',
+            name: 'explicits',
+            scriptUrl: 'explicits.js'
+        }],
+        genderiat: [{
             type: 'time',
-            name: 'raceiat',
-            scriptUrl: 'raceiat.js'
+            name: 'genderiat',
+            scriptUrl: 'genderiat.js'
         }],
 	    
         lastpage: [{
