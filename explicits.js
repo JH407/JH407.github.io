@@ -9,9 +9,9 @@ define(['questAPI'], function(Quest){
         noSubmit:false, //Change to true if you don't want to show the submit button.
         header: 'Questionnaire',
         decline: true,
-        declineText: isTouch ? 'Weiger' : 'Wil ik liever niet beantwoorden', 
+        declineText: isTouch ? 'Decline' : 'Decline to Answer', 
         autoFocus:true, 
-        progressBar:  'Page <%= pagesMeta.number %> out of 8'
+        progressBar:  'Page <%= pagesMeta.number %> out of 3'
     });
 	
     /**
@@ -22,23 +22,18 @@ define(['questAPI'], function(Quest){
         required : true, 		
         errorMsg: {
             required: isTouch 
-                ? 'Selecteer een antwoord of klik op \'Weiger\'' 
-                : 'Selecteer een antwoord of klik op \'Wil ik liever niet beantwoorden\''
+                ? 'Please select an answer, or click \'Decline\'' 
+                : 'Please select an answer, or click \'Decline to Answer\''
         },
         autoSubmit:'true',
         numericValues:'true',
-        help: '<%= pagesMeta.number < 8 %>',
-        helpText: 'Tip: Klik twee maal op uw keuze om snel te antwoorden.'
+        help: '<%= pagesMeta.number < 3 %>',
+        helpText: 'Tip: For quick response, click to select your answer, and then click again to submit.'
     });
 
     API.addQuestionsSet('basicSelect',{
         inherit :'basicQ',
         type: 'selectOne'
-    });
-	
-	  API.addQuestionsSet('basicText',{
-        inherit :'basicQ',
-        type: 'text'
     });
 	
     API.addQuestionsSet('basicDropdown',{
@@ -50,17 +45,17 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('therm',{
         inherit: 'basicSelect',
         answers: [
-            {text:'10 - Extreem warm', value:10},
-            {text:'9 - Zeer warm', value:9},
-            {text:'8 - Warm', value:8},
-            {text:'7 - Best warm', value:7},
-            {text:'6 - Beetje warm', value:6},
-            {text:'5 - Noch warm noch koud', value:5},
-            {text:'4 - Beetje koud', value:4},
-            {text:'3 - Best koud', value:3},
-            {text:'2 - Koud', value:2},
-            {text:'1 - Zeer koud', value:1},
-            {text:'0 - Extreem koud', value:0}
+            {text:'10 - Extremely warm', value:10},
+            {text:'9 - Very warm', value:9},
+            {text:'8 - Moderately warm', value:8},
+            {text:'7 - Somewhat warm', value:7},
+            {text:'6 - Slightly warm', value:6},
+            {text:'5 - Neither warm nor cold', value:5},
+            {text:'4 - Slightly cold', value:4},
+            {text:'3 - Somewhat cold', value:3},
+            {text:'2 - Moderately cold', value:2},
+            {text:'1 - Very cold', value:1},
+            {text:'0 - Extremely cold', value:0}
         ]
     });
 
@@ -71,78 +66,30 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('attributes7',{
         inherit : 'basicSelect',
         name: 'attributes7',
-        stem: 'Welk statement past het best bij u?',
+        stem: 'Which statement best describes you?',
         answers: [
-            {text:'Ik heb een sterke voorkeur voor <%= global.cisgenderLabels %> boven <%= global.transgenderLabels %>.',value:7},
-            {text:'Ik heb een matige voorkeur voor <%= global.cisgenderLabels %> boven <%= global.transgenderLabels %>.',value:6},
-            {text:'Ik heb een lichte voorkeur voor<%= global.cisgenderLabels %> boven <%= global.transgenderLabels %>.',value:5},
-            {text:'Ik heb tussen <%= global.cisgenderLabels %> en <%= global.transgenderLabels %> geen voorkeur.',value:4},
-            {text:'Ik heb een lichte voorkeur voor <%= global.transgenderLabels %> boven <%= global.cisgenderLabels %>.',value:3},
-            {text:'Ik heb een matige voorkeur voor  <%= global.transgenderLabels %> boven <%= global.cisgenderLabels %>.',value:2},
-            {text:'Ik heb een sterke voorkeur voor  <%= global.transgenderLabels %> boven <%= global.cisgenderLabels %>.',value:1}
+            {text:'I strongly prefer <%= global.whiteLabels %> to <%= global.blackLabels %>.',value:7},
+            {text:'I moderately prefer <%= global.whiteLabels %> to <%= global.blackLabels %>.',value:6},
+            {text:'I slightly prefer <%= global.whiteLabels %> to <%= global.blackLabels %>.',value:5},
+            {text:'I like <%= global.whiteLabels %> and <%= global.blackLabels %> equally.',value:4},
+            {text:'I slightly prefer <%= global.blackLabels %> to <%= global.whiteLabels %>.',value:3},
+            {text:'I moderately prefer <%= global.blackLabels %> to <%= global.whiteLabels %>.',value:2},
+            {text:'I strongly prefer <%= global.blackLabels %> to <%= global.whiteLabels %>.',value:1}
         ]
     });
-	  API.addQuestionsSet('age', {
-        	inherit : 'basicText',
-       		name: 'age',
-       		stem: 'Wat is uw geboortejaar?',
-    });
 	
-	API.addQuestionsSet('thermTransgender',{
-       		inherit : 'therm',
-       	 	name: 'Ttransgender_0to10',
-        	stem: 'Hoe warm of koud voel je je ten opzichte van <b><%= global.transgenderLabels %></b>?'
+    API.addQuestionsSet('thermBlack',{
+        inherit : 'therm',
+        name: 'Tblack_0to10',
+        stem: 'How warm or cold do you feel towards <b><%= global.blackLabels %></b>?'
     });
 
-    	API.addQuestionsSet('thermCisgender',{
-        	inherit : 'therm',
-        	name: 'Tcisgender_0to10',
-        	stem: 'Hoe warm of koud voel je je ten opzichte van <b><%= global.cisgenderLabels %></b>?'
+    API.addQuestionsSet('thermWhite',{
+        inherit : 'therm',
+        name: 'Twhite_0to10',
+        stem: 'How warm or cold do you feel towards <b><%= global.whiteLabels %></b>?'
     });
-	
-	API.addQuestionsSet('education',{
-     	   inherit : 'basicSelect',
-      	  name: 'educationlevel',
-      	  stem: 'Wat is uw huidige functie?',
-      	  answers: [
-            {text:'Coassistent',value:4},
-            {text:'ANIOS',value:3},
-            {text:'AIOS',value:2},
-            {text:'Specialist',value:1},
-        ]
-    });
-	API.addQuestionsSet('transgender',{
-     	   inherit : 'basicSelect',
-      	  name: 'cisortrans',
-      	  stem: 'Bent u cisgender of transgender? <br/><br/> Om de termen nogmaals op te helderen: Met cisgender wordt bedoeld dat er een match is tussen het geslacht dat bij geboorte is bepaald en de genderidentiteit die iemand nu heeft. Transgender betekent dat er geen match is tussen het geslacht bepaald bij geboorte en iemands genderidentiteit.',
-      	  answers: [
-            {text:'Cisgender',value:2},
-            {text:'Transgender',value:1},
-        ]
-    });
-	
-	API.addQuestionsSet('genderidentity',{
-     	   inherit : 'basicSelect',
-      	  name: 'genderidentity',
-	stem: 'Hoe zou u uw het best genderidentiteit omschrijven?',
-	answers: [
-            {text:'Geen van alle passen bij mij',value:6},
-            {text:'Genderfluïde',value:5},
-	    {text:'Genderqueer',value:4},
-            {text:'Non-Binair',value:3},
-	    {text:'Man',value:2},
-            {text:'Vrouw',value:1},
-        ]
-		API.addQuestionsSet('patienten',{
-     	   inherit : 'basicSelect',
-      	  name: 'patiente',
-      	  stem: 'Heeft u patiënten die zich als transgender identificeren?',
-      	  answers: [
-            {text:'Ja',value:2},
-            {text:'Nee',value:1},
-        ]
-    });
-    });
+
     API.addSequence([
         {
             mixer : 'random', 
@@ -153,37 +100,17 @@ define(['questAPI'], function(Quest){
                     data : [
                         {
                             inherit:'basicPage', 
-                            questions: {inherit:'thermTransgender'}
+                            questions: {inherit:'thermBlack'}
                         },
                         {
                             inherit:'basicPage', 
-                            questions: {inherit:'thermCisgender'}							
+                            questions: {inherit:'thermWhite'}							
                         }
                     ]
                 },
                 {
                     inherit:'basicPage', 
                     questions: {inherit:'attributes7'}
-                },
-		{
-                    inherit:'basicPage', 
-                    questions: [{inherit:'age'}]
-                },
-		{
-                    inherit:'basicPage', 
-                    questions: [{inherit:'education'}]
-                },
-		{
-                    inherit:'basicPage', 
-                    questions: [{inherit:'transgender'}]
-                },
-		    {
-                    inherit:'basicPage', 
-                    questions: [{inherit:'patienten'}]
-                },
-		{
-                    inherit:'basicPage', 
-                    questions: [{inherit:'genderidentity'}]
                 }
             ]
         }
