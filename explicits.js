@@ -122,6 +122,15 @@ define(['questAPI'], function(Quest){
             {text:'Nee',value:1},
         ]
     });
+	API.addQuestionsSet('omgeving',{
+     	inherit : 'basicSelect',
+      	name: 'omgeving',
+      	stem: 'Heeft u mensen in uw omgeving die zich als transgender identificeren?',
+      	answers: [
+            {text:'Ja',value:2},
+            {text:'Nee',value:1},
+        ]
+    });
 	API.addQuestionsSet('genderidentity',{
      	   inherit : 'basicSelect',
       	  name: 'genderidentity',
@@ -183,6 +192,10 @@ define(['questAPI'], function(Quest){
 		{
                     inherit:'basicPage', 
                     questions: [{inherit:'patienten'}]
+                },
+		{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'omgeving'}]
                 },
 		{
                     inherit:'basicPage', 
