@@ -116,12 +116,23 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('patienten',{
      	inherit : 'basicSelect',
       	name: 'patienten',
-      	stem: 'Heeft u contact (gehad) patiënten die zich als transgender identificeren?',
+      	stem: 'Heeft u contact (gehad) met patiënten die zich als transgender identificeren?',
       	answers: [
             {text:'Ja',value:2},
             {text:'Nee',value:1},
         ]
     });
+	API.addQuestionsSet('genderidentity',{
+     	   inherit : 'basicSelect',
+      	  name: 'genderidentity',
+	stem: 'Hoe zou u uw het best genderidentiteit omschrijven?',
+	answers: [
+            {text:'Geen van alle passen bij mij',value:4},
+            {text:'Non-Binair, genderqueer of agender',value:3},
+	    {text:'Man',value:2},
+            {text:'Vrouw',value:1},
+      	 ]
+     });
 	
     API.addQuestionsSet('thermBlack',{
         inherit : 'therm',
@@ -172,6 +183,10 @@ define(['questAPI'], function(Quest){
 		{
                     inherit:'basicPage', 
                     questions: [{inherit:'patienten'}]
+                },
+		{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'genderidentity'}]
                 }
             ]
         }
