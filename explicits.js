@@ -87,7 +87,19 @@ define(['questAPI'], function(Quest){
         inherit : 'basicText',
         name: 'age',
         stem: 'Hoe oud bent u?'
-    })
+    });
+	
+    API.addQuestionsSet('education',{
+     	inherit : 'basicSelect',
+      	name: 'educationlevel',
+      	stem: 'Wat is uw huidige functie?',
+      	answers: [
+            {text:'Coassistent',value:4},
+            {text:'ANIOS',value:3},
+            {text:'AIOS',value:2},
+            {text:'Specialist',value:1},
+        ]
+    });
 	
     API.addQuestionsSet('thermBlack',{
         inherit : 'therm',
@@ -126,6 +138,10 @@ define(['questAPI'], function(Quest){
 		{
                     inherit:'basicPage', 
                     questions: [{inherit:'age'}]
+                },
+		{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'education'}]
                 }
             ]
         }
