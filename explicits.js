@@ -82,6 +82,12 @@ define(['questAPI'], function(Quest){
             {text:'Ik heb een sterke voorkeur voor <%= global.transgenderLabels %> boven <%= global.cisgenderLabels %>.',value:1}
         ]
     });
+
+    API.addQuestionsSet('age', {
+        inherit : 'basicText',
+        name: 'age',
+        stem: 'Hoe oud bent u?'
+    })
 	
     API.addQuestionsSet('thermBlack',{
         inherit : 'therm',
@@ -116,6 +122,10 @@ define(['questAPI'], function(Quest){
                 {
                     inherit:'basicPage', 
                     questions: {inherit:'attributes7'}
+                },
+		{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'age'}]
                 }
             ]
         }
