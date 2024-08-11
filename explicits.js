@@ -178,23 +178,16 @@ define(['questAPI'], function(Quest){
 
     API.addSequence([
         {
-            mixer : 'random', 
-            data : [
-                {
-                    mixer : 'random', 
-                    wrapper:true, 
-                    data : [
-                        {
-                            inherit:'basicPage', 
-                            questions: {inherit:'thermBlack'}
-                        },
-                        {
-                            inherit:'basicPage', 
-                            questions: {inherit:'thermWhite'}							
-                        }
-                    ]
-                },
-                {
+		inherit:'basicPage', 
+       		questions: {inherit:'thermBlack'}
+	},
+	    
+        {
+        	inherit:'basicPage', 
+                questions: {inherit:'thermWhite'}							
+        },
+	    
+        {
                     inherit:'basicPage', 
                     questions: {inherit:'attributes7'}
                 },
@@ -230,8 +223,6 @@ define(['questAPI'], function(Quest){
                     inherit:'basicPage', 
                     questions: [{inherit:'genderidentity'}]
                 }
-            ]
-        }
     ]);
 
     return API.script;
