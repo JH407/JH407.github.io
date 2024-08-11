@@ -11,7 +11,7 @@ define(['questAPI'], function(Quest){
         decline: true,
         declineText: isTouch ? 'Weiger' : 'Wil ik liever niet beantwoorden', 
         autoFocus:true, 
-        progressBar:  'Pagina <%= pagesMeta.number %> van 3'
+        progressBar:  'Pagina <%= pagesMeta.number %> van 11'
     });
 	
     /**
@@ -27,7 +27,7 @@ define(['questAPI'], function(Quest){
         },
         autoSubmit:'true',
         numericValues:'true',
-        help: '<%= pagesMeta.number < 3 %>',
+        help: '<%= pagesMeta.number < 11 %>',
         helpText: 'Tip: Klik twee maal op uw keuze om snel te antwoorden.'
     });
 
@@ -116,7 +116,7 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('patienten',{
      	inherit : 'basicSelect',
       	name: 'patienten',
-      	stem: 'Heeft u contact (gehad) met patiënten die zich als transgender identificeren?',
+      	stem: 'Heeft u ooit contact (gehad) met een patiënt die zich als transgender identificeren?',
       	answers: [
             {text:'Ja',value:2},
             {text:'Nee',value:1},
