@@ -111,6 +111,17 @@ define(['questAPI'], function(Quest){
             {text:'Transgender',value:1},
         ]
     });
+
+	
+    API.addQuestionsSet('patienten',{
+     	inherit : 'basicSelect',
+      	name: 'patienten',
+      	stem: 'Heeft u contact (gehad) patiënten die zich als transgender identificeren?',
+      	answers: [
+            {text:'Ja',value:2},
+            {text:'Nee',value:1},
+        ]
+    });
 	
     API.addQuestionsSet('thermBlack',{
         inherit : 'therm',
@@ -157,6 +168,10 @@ define(['questAPI'], function(Quest){
 		{
                     inherit:'basicPage', 
                     questions: [{inherit:'transgender'}]
+                },
+		{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'patienten'}]
                 }
             ]
         }
