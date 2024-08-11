@@ -47,12 +47,12 @@ define(['questAPI'], function(Quest){
         answers: [
             {text:'10 - Extreem warm', value:10},
             {text:'9 - Zeer warm', value:9},
-            {text:'8 -  Warm', value:8},
+            {text:'8 - Warm', value:8},
             {text:'7 - Best warm', value:7},
             {text:'6 - Beetje warm', value:6},
             {text:'5 - Noch warm noch koud', value:5},
-            {text:'4 - Beetje cold', value:4},
-            {text:'3 - Best cold', value:3},
+            {text:'4 - Beetje koud', value:4},
+            {text:'3 - Best koud', value:3},
             {text:'2 - Koud', value:2},
             {text:'1 - Zeer koud', value:1},
             {text:'0 - Extreem koud', value:0}
@@ -66,7 +66,7 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('attributes7',{
         inherit : 'basicSelect',
         name: 'attributes7',
-        stem: 'Which statement best describes you?',
+        stem: 'Welk statement pas het beste bij u?',
         answers: [
             {text:'Ik heb een sterke voorkeur voor <%= global.cisgenderLabels %> boven <%= global.transgenderLabels %>.',value:7},
             {text:'Ik heb een matige voorkeur voor <%= global.cisgenderLabels %> boven <%= global.transgenderLabels %>.',value:6},
