@@ -122,24 +122,45 @@ define(['questAPI'], function(Quest){
             {text:'Nee',value:1},
         ]
     });
-	API.addQuestionsSet('omgeving',{
+	API.addQuestionsSet('ontmoet',{
      	inherit : 'basicSelect',
-      	name: 'omgeving',
-      	stem: 'Heeft u mensen in uw omgeving die zich als transgender identificeren?',
+      	name: 'ontmoet',
+      	stem: 'Heeft u ooit iemand ontmoet die zich als transgender identificeert?',
       	answers: [
             {text:'Ja',value:2},
             {text:'Nee',value:1},
         ]
     });
+	
+	API.addQuestionsSet('familie',{
+     	inherit : 'basicSelect',
+      	name: 'familie',
+      	stem: 'Heeft u iemand in uw familie die zich als transgender identificeert?',
+      	answers: [
+            {text:'Ja',value:2},
+            {text:'Nee',value:1},
+        ]
+    });
+
+	API.addQuestionsSet('vriend',{
+     	inherit : 'basicSelect',
+      	name: 'vriend',
+      	stem: 'Heeft u iemand in uw vriendenkring die zich als transgender identificeert?',
+      	answers: [
+            {text:'Ja',value:2},
+            {text:'Nee',value:1},
+        ]
+    });
+	
 	API.addQuestionsSet('genderidentity',{
      	   inherit : 'basicSelect',
       	  name: 'genderidentity',
 	stem: 'Hoe zou u uw het best genderidentiteit omschrijven?',
 	answers: [
-            {text:'Geen van alle passen bij mij',value:4},
-            {text:'Non-Binair, genderqueer of agender',value:3},
-	    {text:'Man',value:2},
-            {text:'Vrouw',value:1},
+            {text:'Non-Binair, genderqueer of agender',value:4},
+	    {text:'Man',value:3},
+            {text:'Vrouw',value:2},
+	    {text:'Geen van alle passen bij mij',value:1},
       	 ]
      });
 	
@@ -195,7 +216,15 @@ define(['questAPI'], function(Quest){
                 },
 		{
                     inherit:'basicPage', 
-                    questions: [{inherit:'omgeving'}]
+                    questions: [{inherit:'ontmoet'}]
+                },
+		{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'familie'}]
+                },
+		{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'vriend'}]
                 },
 		{
                     inherit:'basicPage', 
