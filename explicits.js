@@ -11,7 +11,7 @@ define(['questAPI'], function(Quest){
         decline: true,
         declineText: isTouch ? 'Weiger' : 'Wil ik liever niet beantwoorden', 
         autoFocus:true, 
-        progressBar:  'Page <%= pagesMeta.number %> out of 3'
+        progressBar:  'Pagina <%= pagesMeta.number %> van 3'
     });
 	
     /**
@@ -34,6 +34,11 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('basicSelect',{
         inherit :'basicQ',
         type: 'selectOne'
+    });
+	
+	API.addQuestionsSet('basicText',{
+        inherit :'basicQ',
+        type: 'text'
     });
 	
     API.addQuestionsSet('basicDropdown',{
