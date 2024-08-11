@@ -22,13 +22,13 @@ define(['questAPI'], function(Quest){
         required : true, 		
         errorMsg: {
             required: isTouch 
-                ? 'Please select an answer, or click \'Decline\'' 
-                : 'Please select an answer, or click \'Decline to Answer\''
+                ? 'Please select an answer, or click \'Weiger\'' 
+                : 'Please select an answer, or click \'Wil ik liever niet beantwoorden\''
         },
         autoSubmit:'true',
         numericValues:'true',
         help: '<%= pagesMeta.number < 3 %>',
-        helpText: 'Tip: For quick response, click to select your answer, and then click again to submit.'
+        helpText: 'Tip: Klik twee maal op uw keuze om snel te antwoorden.'
     });
 
     API.addQuestionsSet('basicSelect',{
@@ -45,17 +45,17 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('therm',{
         inherit: 'basicSelect',
         answers: [
-            {text:'10 - Extremely warm', value:10},
-            {text:'9 - Very warm', value:9},
-            {text:'8 - Moderately warm', value:8},
-            {text:'7 - Somewhat warm', value:7},
-            {text:'6 - Slightly warm', value:6},
-            {text:'5 - Neither warm nor cold', value:5},
-            {text:'4 - Slightly cold', value:4},
-            {text:'3 - Somewhat cold', value:3},
-            {text:'2 - Moderately cold', value:2},
-            {text:'1 - Very cold', value:1},
-            {text:'0 - Extremely cold', value:0}
+            {text:'10 - Extreem warm', value:10},
+            {text:'9 - Zeer warm', value:9},
+            {text:'8 -  Warm', value:8},
+            {text:'7 - Best warm', value:7},
+            {text:'6 - Beetje warm', value:6},
+            {text:'5 - Noch warm noch koud', value:5},
+            {text:'4 - Beetje cold', value:4},
+            {text:'3 - Best cold', value:3},
+            {text:'2 - Koud', value:2},
+            {text:'1 - Zeer koud', value:1},
+            {text:'0 - Extreem koud', value:0}
         ]
     });
 
