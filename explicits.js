@@ -178,20 +178,6 @@ define(['questAPI'], function(Quest){
 
     API.addSequence([
         	{
-			inherit:'basicPage', 
-       			questions: {inherit:'thermBlack'}
-		},
-	    
-        	{	   		
-			inherit:'basicPage', 
-                	questions: {inherit:'thermWhite'}							
-      		},
-	    
-      		{	
-                    inherit:'basicPage', 
-                    questions: {inherit:'attributes7'}
-                },
-		{
                     inherit:'basicPage', 
                     questions: [{inherit:'age'}]
                 },
@@ -199,13 +185,13 @@ define(['questAPI'], function(Quest){
                     inherit:'basicPage', 
                     questions: [{inherit:'education'}]
                 },
-		{
-                    inherit:'basicPage', 
-                    questions: [{inherit:'transgender'}]
-                },
 	    	{
                     inherit:'basicPage', 
                     questions: [{inherit:'genderidentity'}]
+                },
+	    	{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'transgender'}]
                 },
 		{
                     inherit:'basicPage', 
@@ -222,6 +208,19 @@ define(['questAPI'], function(Quest){
 	    	{	
                     inherit:'basicPage', 
                     questions: [{inherit:'patienten'}]
+                },
+		{
+			inherit:'basicPage', 
+       			questions: {inherit:'thermBlack'}
+		},
+	    
+        	{	   		
+			inherit:'basicPage', 
+                	questions: {inherit:'thermWhite'}							
+      		},
+      		{	
+                    inherit:'basicPage', 
+                    questions: {inherit:'attributes7'}
                 }
     ]);
 
