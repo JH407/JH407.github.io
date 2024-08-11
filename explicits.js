@@ -101,6 +101,16 @@ define(['questAPI'], function(Quest){
         ]
     });
 	
+    API.addQuestionsSet('transgender',{
+     	inherit : 'basicSelect',
+      	name: 'cisortrans',
+      	stem: 'Bent u cisgender of transgender? <br/><br/> Om de termen nogmaals op te helderen: Met cisgender wordt bedoeld dat er een match is tussen het geslacht dat bij geboorte is bepaald en de genderidentiteit die iemand nu heeft. Transgender betekent dat er geen match is tussen het geslacht bepaald bij geboorte en iemands genderidentiteit.',
+      	answers: [
+            {text:'Cisgender',value:2},
+            {text:'Transgender',value:1},
+        ]
+    });
+	
     API.addQuestionsSet('thermBlack',{
         inherit : 'therm',
         name: 'Tblack_0to10',
@@ -142,6 +152,10 @@ define(['questAPI'], function(Quest){
 		{
                     inherit:'basicPage', 
                     questions: [{inherit:'education'}]
+                },
+		{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'transgender'}]
                 }
             ]
         }
