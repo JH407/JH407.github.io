@@ -50,17 +50,11 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('therm',{
         inherit: 'basicSelect',
         answers: [
-            {text:'10 - Extreem warm', value:10},
-            {text:'9 - Zeer warm', value:9},
-            {text:'8 - Warm', value:8},
-            {text:'7 - Best warm', value:7},
-            {text:'6 - Beetje warm', value:6},
-            {text:'5 - Noch warm noch koud', value:5},
-            {text:'4 - Beetje koud', value:4},
-            {text:'3 - Best koud', value:3},
-            {text:'2 - Koud', value:2},
-            {text:'1 - Zeer koud', value:1},
-            {text:'0 - Extreem koud', value:0}
+            {text:'4 - Zeer warm', value:4},
+            {text:'3 - Warm', value:3},
+            {text:'2 - Noch warm noch koud', value:2},
+            {text:'1 - Koud', value:1},
+            {text:'0 - Zeer koud', value:0}
         ]
     });
 
@@ -101,31 +95,12 @@ define(['questAPI'], function(Quest){
             {text:'Specialist',value:1},
         ]
     });
-	
-    API.addQuestionsSet('transgender',{
-     	inherit : 'basicSelect',
-      	name: 'cisortrans',
-      	stem: 'Bent u cisgender of transgender? <br/><br/> Om de termen nogmaals op te helderen: Met cisgender wordt bedoeld dat er een match is tussen het geslacht dat bij geboorte is bepaald en de genderidentiteit die iemand nu heeft. Transgender betekent dat er geen match is tussen het geslacht bepaald bij geboorte en iemands genderidentiteit.',
-      	answers: [
-            {text:'Cisgender',value:2},
-            {text:'Transgender',value:1},
-        ]
-    });
 
 	
     API.addQuestionsSet('patienten',{
      	inherit : 'basicSelect',
       	name: 'patienten',
       	stem: 'Heeft u ooit contact (gehad) met een patiënt die zich als transgender identificeren?',
-      	answers: [
-            {text:'Ja',value:2},
-            {text:'Nee',value:1},
-        ]
-    });
-	API.addQuestionsSet('ontmoet',{
-     	inherit : 'basicSelect',
-      	name: 'ontmoet',
-      	stem: 'Heeft u ooit iemand ontmoet die zich als transgender identificeert?',
       	answers: [
             {text:'Ja',value:2},
             {text:'Nee',value:1},
@@ -157,7 +132,7 @@ define(['questAPI'], function(Quest){
       	  name: 'genderidentity',
 	stem: 'Hoe zou u uw het best genderidentiteit omschrijven?',
 	answers: [
-            {text:'Non-Binair, genderqueer of agender',value:4},
+            {text:'Transgender of gender diverse',value:4},
 	    {text:'Man',value:3},
             {text:'Vrouw',value:2},
 	    {text:'Geen van alle passen bij mij',value:1},
@@ -188,14 +163,6 @@ define(['questAPI'], function(Quest){
 	    	{
                     inherit:'basicPage', 
                     questions: [{inherit:'genderidentity'}]
-                },
-	    	{
-                    inherit:'basicPage', 
-                    questions: [{inherit:'transgender'}]
-                },
-		{
-                    inherit:'basicPage', 
-                    questions: [{inherit:'ontmoet'}]
                 },
 		{
                     inherit:'basicPage', 
