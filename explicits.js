@@ -11,7 +11,7 @@ define(['questAPI'], function(Quest){
         decline: true,
         declineText: isTouch ? 'Weiger' : 'Wil ik liever niet beantwoorden', 
         autoFocus:true, 
-        progressBar:  'Pagina <%= pagesMeta.number %> van 11'
+        progressBar:  'Pagina <%= pagesMeta.number %> van 13'
     });
 	
     /**
@@ -27,7 +27,7 @@ define(['questAPI'], function(Quest){
         },
         autoSubmit:'true',
         numericValues:'true',
-        help: '<%= pagesMeta.number < 12 %>',
+        help: '<%= pagesMeta.number < 14 %>',
         helpText: 'Tip: Klik twee maal op uw keuze om snel te antwoorden.'
     });
 
@@ -50,11 +50,11 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('therm',{
         inherit: 'basicSelect',
         answers: [
-            {text:'4 - Zeer warm', value:4},
-            {text:'3 - Warm', value:3},
-            {text:'2 - Noch warm noch koud', value:2},
-            {text:'1 - Koud', value:1},
-            {text:'0 - Zeer koud', value:0}
+            {text:'4 - Zeer positief', value:4},
+            {text:'3 - Positief', value:3},
+            {text:'2 - Neutraal', value:2},
+            {text:'1 - Negatief', value:1},
+            {text:'0 - Zeer negatief', value:0}
         ]
     });
 
@@ -138,17 +138,67 @@ define(['questAPI'], function(Quest){
 	    {text:'Geen van alle passen bij mij',value:1},
       	 ]
      });
+
+	API.addQuestionsSet('lhbt',{
+     	inherit : 'basicSelect',
+      	name: 'lhbt',
+      	stem: 'Maakt u deel uit van de LHBTQ+ gemeenschap?',
+      	answers: [
+            {text:'Ja',value:2},
+            {text:'Nee',value:1},
+        ]
+    });
+	API.addQuestionsSet('religieus',{
+     	inherit : 'basicSelect',
+      	name: 'religieus',
+      	stem: 'Bent u religieus, en zo ja, welk geloof hangt u aan?',
+      	answers: [
+            {text:'Ik ben niet gelovig',value:8},
+            {text:'Anders',value:7},
+		{text:'Boeddhisme',value:6},
+            {text:'Hindoeïsme',value:5},
+		{text:'Jodendom',value:4},
+            {text:'Islam',value:3},
+		{text:'Protestantse kerk',value:2},
+            {text:'Katholieke kerk',value:1},
+        ]
+    });
+	API.addQuestionsSet('gelovig',{
+     	inherit : 'basicSelect',
+      	name: 'gelovig',
+      	stem: 'Hoe gelovig zou u zichzelf omschrijven?',
+      	answers: [
+		{text:'Sterk gelovig',value:4},
+            {text:'Redelijk gelovig',value:3},
+		{text:'Een beetje gelovig',value:2},
+            {text:'Helemaal niet gelovig',value:1},
+        ]
+    });
+	API.addQuestionsSet('politiek',{
+     	inherit : 'basicSelect',
+      	name: 'politiek',
+      	stem: 'Hoe zou u uw politieke overtuiging omschrijven?',
+      	answers: [
+            {text:'Zeer conservatief',value:7},
+		{text:'Redelijk conservatief',value:6},
+            {text:'Een beetje conservatief',value:5},
+		{text:'Noch conservatief noch progressief',value:4},
+            {text:'Een beetje progressief',value:3},
+		{text:'Redelijk progressief',value:2},
+            {text:'Sterk progressief',value:1},
+        ]
+    });
 	
     API.addQuestionsSet('thermBlack',{
         inherit : 'therm',
         name: 'Tblack_0to10',
-        stem: 'Hoe warm of koud voel je je ten opzichte van <b><%= global.transgenderLabels %></b>?'
+        stem: 'Wat is uw gevoel richting <b><%= global.transgenderLabels %></b>?'
     });
 
     API.addQuestionsSet('thermWhite',{
         inherit : 'therm',
         name: 'Twhite_0to10',
-        stem: 'Hoe warm of koud voel je je ten opzichte van <b><%= global.cisgenderLabels %></b>?'
+        stem: 'Wat is uw gevoel richting <b><%= global.cisgenderLabels %></b>?'
     });
 
     API.addSequence([
@@ -160,9 +210,25 @@ define(['questAPI'], function(Quest){
                     inherit:'basicPage', 
                     questions: [{inherit:'education'}]
                 },
+	  	{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'religieus'}]
+                },
+	   	{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'gelovig'}]
+                },
+	    	{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'politiek'}]
+                },
 	    	{
                     inherit:'basicPage', 
                     questions: [{inherit:'genderidentity'}]
+                },
+	   	{
+                    inherit:'basicPage', 
+                    questions: [{inherit:'lhbt'}]
                 },
 		{
                     inherit:'basicPage', 
