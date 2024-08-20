@@ -11,23 +11,23 @@ define(['questAPI'], function(Quest){
         decline: true,
         declineText: isTouch ? 'Weiger' : 'Wil ik liever niet beantwoorden', 
         autoFocus:true, 
-        progressBar:  'Pagina <%= pagesMeta.number %> van 13'
+        progressBar:  'Pagina <%= pagesMeta.number %> van 14'
     });
 	
     /**
 	* Question prototypes
 	*/
     API.addQuestionsSet('basicQ',{
-        decline: 'true',
+        decline: true,
         required : true, 		
         errorMsg: {
             required: isTouch 
                 ? 'Selecteer een antwoord of klik op \'Weiger\'' 
                 : 'Selecteer een antwoord of klik op \'Wil ik liever niet beantwoorden\''
         },
-        autoSubmit:'true',
-        numericValues:'true',
-        help: '<%= pagesMeta.number < 14 %>',
+        autoSubmit:true,
+        numericValues: true,
+        help: true,
         helpText: 'Tip: Klik twee maal op uw keuze om snel te antwoorden.'
     });
 
@@ -65,7 +65,7 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('attributes7',{
         inherit : 'basicSelect',
         name: 'attributes7',
-        stem: 'Welk statement pas het beste bij u?',
+        stem: 'Welk statement past het beste bij u?',
         answers: [
             {text:'Ik heb een sterke voorkeur voor <%= global.cisgenderLabels %> boven <%= global.transgenderLabels %>.',value:7},
             {text:'Ik heb een matige voorkeur voor <%= global.cisgenderLabels %> boven <%= global.transgenderLabels %>.',value:6},
@@ -92,7 +92,7 @@ define(['questAPI'], function(Quest){
             {text:'Coassistent',value:4},
             {text:'ANIOS',value:3},
             {text:'AIOS',value:2},
-            {text:'Specialist',value:1},
+            {text:'Specialist',value:1}
         ]
     });
 
@@ -103,7 +103,7 @@ define(['questAPI'], function(Quest){
       	stem: 'Heeft u ooit contact (gehad) met een patiënt die zich als transgender identificeren?',
       	answers: [
             {text:'Ja',value:2},
-            {text:'Nee',value:1},
+            {text:'Nee',value:1}
         ]
     });
 	
@@ -113,7 +113,7 @@ define(['questAPI'], function(Quest){
       	stem: 'Heeft u iemand in uw familie die zich als transgender identificeert?',
       	answers: [
             {text:'Ja',value:2},
-            {text:'Nee',value:1},
+            {text:'Nee',value:1}
         ]
     });
 
@@ -123,7 +123,7 @@ define(['questAPI'], function(Quest){
       	stem: 'Heeft u iemand in uw vriendenkring die zich als transgender identificeert?',
       	answers: [
             {text:'Ja',value:2},
-            {text:'Nee',value:1},
+            {text:'Nee',value:1}
         ]
     });
 	
@@ -135,7 +135,7 @@ define(['questAPI'], function(Quest){
             {text:'Transgender of gender diverse',value:4},
 	    {text:'Man',value:3},
             {text:'Vrouw',value:2},
-	    {text:'Geen van alle passen bij mij',value:1},
+	    {text:'Geen van alle passen bij mij',value:1}
       	 ]
      });
 
@@ -145,7 +145,7 @@ define(['questAPI'], function(Quest){
       	stem: 'Maakt u deel uit van de LHBTQ+ gemeenschap?',
       	answers: [
             {text:'Ja',value:2},
-            {text:'Nee',value:1},
+            {text:'Nee',value:1}
         ]
     });
 	API.addQuestionsSet('religieus',{
@@ -160,7 +160,7 @@ define(['questAPI'], function(Quest){
 		{text:'Jodendom',value:4},
             {text:'Islam',value:3},
 		{text:'Protestantse kerk',value:2},
-            {text:'Katholieke kerk',value:1},
+            {text:'Katholieke kerk',value:1}
         ]
     });
 	API.addQuestionsSet('gelovig',{
@@ -171,7 +171,7 @@ define(['questAPI'], function(Quest){
 		{text:'Sterk gelovig',value:4},
             {text:'Redelijk gelovig',value:3},
 		{text:'Een beetje gelovig',value:2},
-            {text:'Helemaal niet gelovig',value:1},
+            {text:'Helemaal niet gelovig',value:1}
         ]
     });
 	API.addQuestionsSet('politiek',{
@@ -185,7 +185,7 @@ define(['questAPI'], function(Quest){
 		{text:'Noch conservatief noch progressief',value:4},
             {text:'Een beetje progressief',value:3},
 		{text:'Redelijk progressief',value:2},
-            {text:'Sterk progressief',value:1},
+            {text:'Sterk progressief',value:1}
         ]
     });
 	API.addQuestionsSet('interview',{
@@ -250,20 +250,20 @@ define(['questAPI'], function(Quest){
                 },
 		{
 			inherit:'basicPage', 
-       			questions: {inherit:'thermBlack'}
+       			questions: [{inherit:'thermBlack'}]
 		},
 	    
         	{	   		
 			inherit:'basicPage', 
-                	questions: {inherit:'thermWhite'}							
+                	questions: [{inherit:'thermWhite'}]							
       		},
       		{	
                     inherit:'basicPage', 
-                    questions: {inherit:'attributes7'}
+                    questions: [{inherit:'attributes7'}]
                 },
 	    {	
                     inherit:'basicPage', 
-                    questions: {inherit:'interview'}
+                    questions: [{inherit:'interview'}]
     ]);
 
     return API.script;
