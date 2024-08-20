@@ -11,7 +11,7 @@ define(['questAPI'], function(Quest){
         decline: true,
         declineText: isTouch ? 'Weiger' : 'Wil ik liever niet beantwoorden', 
         autoFocus:true, 
-        progressBar:  'Pagina <%= pagesMeta.number %> van 14'
+        progressBar:  'Pagina <%= pagesMeta.number %> van 13'
     });
 	
     /**
@@ -27,7 +27,7 @@ define(['questAPI'], function(Quest){
         },
         autoSubmit:'true',
         numericValues:'true',
-        help: '<%= pagesMeta.number < 15 %>',
+        help: '<%= pagesMeta.number < 14 %>',
         helpText: 'Tip: Klik twee maal op uw keuze om snel te antwoorden.'
     });
 
@@ -188,12 +188,6 @@ define(['questAPI'], function(Quest){
             {text:'Sterk progressief',value:1},
         ]
     });
-	API.addQuestionsSet('interview',{
-     	inherit : 'basicText',
-      	name: 'interview',
-      	stem: 'Zou u bereid zijn om naar aanleiding van deze enquête mee te doen aan een interview? Zo ja, laat uw emailadres hieronder achter zodat wij contact met u op kunnen nemen. Zo nee, klik op 'Wil ik liever niet beantwoorden'.',
-
-    });
 	
     API.addQuestionsSet('thermBlack',{
         inherit : 'therm',
@@ -260,10 +254,6 @@ define(['questAPI'], function(Quest){
       		{	
                     inherit:'basicPage', 
                     questions: {inherit:'attributes7'}
-                },
-	 	{	
-                    inherit:'basicPage', 
-                    questions: {inherit:'interview'}
                 }
     ]);
 
