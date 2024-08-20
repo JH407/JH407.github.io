@@ -191,7 +191,7 @@ define(['questAPI'], function(Quest){
 	API.addQuestionsSet('interview',{
      	inherit : 'basicText',
       	name: 'interview',
-      	stem: 'Zou u bereid zijn om naar aanleiding van deze enquête mee te doen aan een interview? Zo ja, laat uw emailadres hieronder achter zodat wij contact met u op kunnen nemen. Zo nee, klik op Wil ik liever niet beantwoorden.',
+      	stem: 'Zou u bereid zijn om naar aanleiding van deze enquête mee te doen aan een interview? Zo ja, laat uw emailadres hieronder achter zodat wij contact met u op kunnen nemen. Zo nee, klik op Wil ik liever niet beantwoorden.'
 
     });
 	
