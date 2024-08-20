@@ -188,6 +188,12 @@ define(['questAPI'], function(Quest){
             {text:'Sterk progressief',value:1},
         ]
     });
+	API.addQuestionsSet('interview',{
+     	inherit : 'basicText',
+      	name: 'interview',
+      	stem: 'Zou u bereid zijn om naar aanleiding van deze enquête mee te doen aan een interview? Zo ja, laat uw emailadres hieronder achter zodat wij contact met u op kunnen nemen. Zo nee, klik op Wil ik liever niet beantwoorden.',
+
+    });
 	
     API.addQuestionsSet('thermBlack',{
         inherit : 'therm',
@@ -254,7 +260,10 @@ define(['questAPI'], function(Quest){
       		{	
                     inherit:'basicPage', 
                     questions: {inherit:'attributes7'}
-                }
+                },
+	    {	
+                    inherit:'basicPage', 
+                    questions: {inherit:'interview'}
     ]);
 
     return API.script;
