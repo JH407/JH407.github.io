@@ -463,6 +463,16 @@ API.addQuestionsSet('raceombmulti',{
 	    {text:'Geen van alle passen bij mij',value:1},
       	 ]
      });
+	
+	API.addQuestionsSet('transgender',{
+     	inherit : 'basicSelect',
+      	name: 'transgender',
+      	stem: 'Identificeert u zich als transgender?',
+      	answers: [
+            {text:'Ja',value:2},
+            {text:'Nee',value:1},
+        ]
+    });
 
 	API.addQuestionsSet('lhbt',{
      	inherit : 'basicSelect',
@@ -570,6 +580,10 @@ API.addQuestionsSet('raceombmulti',{
 	    	{
                     inherit:'basicPage', 
                     questions: [{inherit:'genderidentity'}]
+                },
+	    {
+                    inherit:'basicPage', 
+                    questions: [{inherit:'transgender'}]
                 },
 	   	{
                     inherit:'basicPage', 
