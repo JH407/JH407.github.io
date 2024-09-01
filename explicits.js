@@ -31,6 +31,12 @@ define(['questAPI'], function(Quest){
         helpText: 'Tip: Klik twee maal op uw keuze om snel te antwoorden.'
     });
 
+	API.addQuestionsSet('singleChoice',{
+		inherit: 'basicQ',
+		type: 'selectOne', 
+		
+	});
+
     API.addQuestionsSet('basicSelect',{
         inherit :'basicQ',
         type: 'selectOne'
@@ -76,6 +82,26 @@ define(['questAPI'], function(Quest){
             {text:'Ik heb een sterke voorkeur voor <%= global.transgenderLabels %> boven <%= global.cisgenderLabels %>.',value:1}
         ]
     });
+	API.addQuestionsSet('birthMonth',{
+		inherit: 'singleChoice',
+		style:'multiButtons',
+		name: 'birthmonth',
+		stem: "In welke maand bent u geboren?",
+		answers: [
+			{text:'Januari',value:1},
+			{text:'Februari',value:2},
+			{text:'Maart',value:3},
+			{text:'April',value:4},
+			{text:'Mei',value:5},
+			{text:'Juni',value:6},
+			{text:'Juli',value:7},
+			{text:'Augustus',value:8},
+			{text:'September',value:9},
+			{text:'Oktober',value:10},
+			{text:'November',value:11},
+			{text:'December',value:12}
+		]
+	});
 
     API.addQuestionsSet('age', {
         inherit : 'basicDropdown',
@@ -203,6 +229,10 @@ define(['questAPI'], function(Quest){
 
     API.addSequence([
         	{
+			inherit: 'basicPage',
+			questions: [{inherit: 'birthMonth'}]
+		},
+	    {
                     inherit:'basicPage', 
                     questions: [{inherit:'age'}]
                 },
