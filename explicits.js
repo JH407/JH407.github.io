@@ -94,6 +94,21 @@ define(['questAPI'], function(Quest){
             {text:'Ik heb een sterke voorkeur voor <%= global.transgenderLabels %> boven <%= global.cisgenderLabels %>.',value:1}
         ]
     });
+
+	API.addQuestionsSet('num',{
+		inherit: 'singleChoice',
+		name: 'num002',
+		style:'multiButtons',
+		stem: "How many Implicit Association Tests (IATs) have you previously performed?",
+		answers: [
+			'0',
+			'1',
+			'2',
+		  '3-5',
+			'6+'
+		]
+	});
+	
 	API.addQuestionsSet('birthMonth',{
 		inherit: 'singleChoice',
 		style:'multiButtons',
@@ -512,7 +527,11 @@ API.addQuestionsSet('raceombmulti',{
     });
 
     API.addSequence([
-        	{
+	    {
+			inherit: 'basicPage',
+			questions: [{inherit: 'num'}]
+		},
+	    {
 			inherit: 'basicPage',
 			questions: [{inherit: 'birthMonth'}]
 		},
