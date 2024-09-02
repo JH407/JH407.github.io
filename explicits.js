@@ -146,7 +146,7 @@ API.addQuestionsSet('raceombmulti',{
 			{text:'Marokkaans',value:2},
 			{text:'Surinaams',value:3},
 			{text:'Turks',value:4},
-			{text:'Carabisch',value:5},
+			{text:'Antilliaans',value:5},
 			{text:'Europees buiten Nederland',value:6},
 			{text:'Afrikaans', value:7},
 			{text:'Aziatisch',value:8},
@@ -418,7 +418,8 @@ API.addQuestionsSet('raceombmulti',{
       	name: 'educationlevel',
       	stem: 'Wat is uw huidige functie?',
       	answers: [
-            {text:'Coassistent',value:4},
+		{text:'PhD',value:5},
+		{text:'Coassistent',value:4},
             {text:'ANIOS',value:3},
             {text:'AIOS',value:2},
             {text:'Specialist',value:1},
