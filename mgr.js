@@ -96,6 +96,12 @@ define(['managerAPI',
             header: 'Implicit Association Test'
         }],
 	    
+	    trial_genderiat: [{
+            type: 'time',
+            name: 'trial_genderiat',
+            scriptUrl: 'trial_genderiat.js'
+        }],
+	    
 	    full_instructions: [{
             inherit: 'instructions',
             name: 'full_instructions',
@@ -192,6 +198,7 @@ define(['managerAPI',
                         {inherit: 'genderiat_instructions'},
 			{inherit: 'genderiat_instructionscis'},
 			{inherit: 'trial_instructions'},
+			{inherit: 'trial_genderiat'},
 			{inherit: 'full_instructions'},  
                         {inherit: 'genderiat'}
                     ]
