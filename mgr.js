@@ -87,6 +87,14 @@ define(['managerAPI',
             title: 'IAT Instructies',
             header: 'Implicit Association Test'
         }],
+	    
+	    full_instructions: [{
+            inherit: 'instructions',
+            name: 'full_instructions',
+            templateUrl: 'full_instructions.jst',
+            title: 'IAT Instructies',
+            header: 'Implicit Association Test'
+        }],
 
 	explicits: [{
             type: 'quest',
@@ -175,6 +183,7 @@ define(['managerAPI',
                     data: [
                         {inherit: 'genderiat_instructions'},
 			{inherit: 'genderiat_instructionscis'},
+			{inherit: 'full_instructions'},    
                         {inherit: 'genderiat'}
                     ]
                 }
