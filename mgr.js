@@ -79,6 +79,14 @@ define(['managerAPI',
             title: 'IAT Instructies',
             header: 'Implicit Association Test'
         }],
+	    
+	    genderiat_instructionscis: [{
+            inherit: 'instructions',
+            name: 'genderiat_instructionscis',
+            templateUrl: 'genderiat_instructionscis.jst',
+            title: 'IAT Instructies',
+            header: 'Implicit Association Test'
+        }],
 
 	explicits: [{
             type: 'quest',
@@ -166,6 +174,7 @@ define(['managerAPI',
                     mixer: 'wrapper',
                     data: [
                         {inherit: 'genderiat_instructions'},
+			{inherit: 'genderiat_instructionscis'},
                         {inherit: 'genderiat'}
                     ]
                 }
