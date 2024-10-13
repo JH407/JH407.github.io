@@ -10,8 +10,7 @@ define(['questAPI'], function(Quest){
         header: 'Questionnaire',
         decline: true,
         declineText: isTouch ? 'Weiger' : 'Wil ik liever niet beantwoorden', 
-        autoFocus:true, 
-        progressBar:  'Pagina <%= pagesMeta.number %> van 3'
+        autoFocus:true
     });
 	
     /**
@@ -26,9 +25,7 @@ define(['questAPI'], function(Quest){
                 : 'Selecteer een antwoord of klik op \'Wil ik liever niet beantwoorden\''
         },
         autoSubmit:'true',
-        numericValues:'true',
-        help: '<%= pagesMeta.number < 3 %>',
-        helpText: 'Tip: Klik twee maal op uw keuze om snel te antwoorden.'
+        numericValues:'true'
     });
 
     API.addQuestionsSet('basicSelect',{
