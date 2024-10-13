@@ -11,7 +11,7 @@ define(['questAPI'], function(Quest){
         decline: true,
         declineText: isTouch ? 'Weiger' : 'Wil ik liever niet beantwoorden', 
         autoFocus:true, 
-        progressBar:  'Pagina <%= pagesMeta.number %> van 1'
+        progressBar:  'Pagina <%= pagesMeta.number %> van 13'
     });
 	
     /**
@@ -31,13 +31,38 @@ define(['questAPI'], function(Quest){
         helpText: 'Tip: Klik twee maal op uw keuze om snel te antwoorden.'
     });
 
+	API.addQuestionsSet('singleChoice',{
+		inherit: 'basicQ',
+		type: 'selectOne', 
+		
+	});
+
+    API.addQuestionsSet('basicSelect',{
+        inherit :'basicQ',
+        type: 'selectOne'
+    });
 	
 	API.addQuestionsSet('basicText',{
         inherit :'basicQ',
         type: 'text'
     });
 	
+	API.addQuestionsSet('singleChoicedrop',{
+		inherit: 'basicQ',
+		autoSubmit:false,
+		type: 'dropdown'
+	});
 	
+    API.addQuestionsSet('basicDropdown',{
+        inherit :'basicQ',
+        type : 'dropdown',
+        autoSubmit:false
+    });
+
+	API.addQuestionsSet('multiChoice',{
+		inherit: 'basicQ',
+		type: 'selectMulti'
+	});
 
 	API.addQuestionsSet('basicText',{
         inherit :'basicQ',
@@ -45,13 +70,12 @@ define(['questAPI'], function(Quest){
 	stem: 'Voer nu de unieke code in die u bij de vragenlijst heeft gegenereerd.',
     });
 
-	
-
     API.addSequence([
 	    {
-		inherit: 'basicPage',
-		    questions: {inherit:'code'}
-	    }
+			inherit: 'basicPage',
+			questions: [{inherit: 'code'}]
+		},
+	   
     ]);
 
     return API.script;
