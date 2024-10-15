@@ -1,233 +1,248 @@
-define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.js'], function(APIConstructor, iatExtension){
-    let API = new APIConstructor();
-    let global = API.getGlobal();
+/* The script wrapper */
+define(['pipAPI'], function(APIconstructor) {
 
-    return iatExtension({
-        category1 : {
-            name : global.transgenderLabels, //Will appear in the data.
-            title : {
-                media : {word : global.transgenderLabels}, //Name of the category presented in the task.
-                css : {color:'#31940F','font-size':'1.8em'}, //Style of the category title.
-                height : 4 //Used to position the "Or" in the combined block.
-            }, 
-            stimulusMedia : [ //Stimuli content as PIP's media objects
-                {image: 'T1.jpg'},
-                {image: 'T2.jpg'},
-                {image: 'T3.jpg'},              
-                {image: 'T4.jpg'}     
-            ],
-            //Stimulus css (style)
-            stimulusCss : {color:'#31940F','font-size':'2.3em'}
-        },    
-        category2 : {
-            name : global.cisgenderLabels, //Will appear in the data.
-            title : {
-                media : {word : global.cisgenderLabels}, //Name of the category presented in the task.
-                css : {color:'#31940F','font-size':'1.8em'}, //Style of the category title.
-                height : 4 //Used to position the "Or" in the combined block.
-            }, 
-            stimulusMedia : [ //Stimuli content as PIP's media objects
-                {image: 'C1.jpg'},
-                {image: 'C2.jpg'},
-                {image: 'C3.jpg'},
-                {image: 'C4.jpg'}
-            ],
-            //Stimulus css (style)
-            stimulusCss : {color:'#31940F','font-size':'2.3em'}
-        },
-        attribute1 : {
-            name : 'Negatieve woorden',
-            title : {
-                media : {word : 'Negatieve woorden'},
-                css : {color:'#0000FF','font-size':'1.8em'},
-                height : 4 //Used to position the "Or" in the combined block.
-            },
-            stimulusMedia : [ //Stimuli content as PIP's media objects
-                {word: global.negWords[0]},
-                {word: global.negWords[1]},
-                {word: global.negWords[2]},
-                {word: global.negWords[3]},
-                {word: global.negWords[4]},
-                {word: global.negWords[5]},
-                {word: global.negWords[6]},
-                {word: global.negWords[7]}
-            ],
-            //Stimulus css
-            stimulusCss : {color:'#0000FF','font-size':'2.3em'}
-        },
-        attribute2 : {
-            name : 'Positieve woorden',
-            title : {
-                media : {word : 'Positieve woorden'},
-                css : {color:'#0000FF','font-size':'1.8em'},
-                height : 4 //Used to position the "Or" in the combined block.
-            },
-            stimulusMedia : [ //Stimuli content as PIP's media objects
-                {word: global.posWords[0]},
-                {word: global.posWords[1]},
-                {word: global.posWords[2]},
-                {word: global.posWords[3]},
-                {word: global.posWords[4]},
-                {word: global.posWords[5]},
-                {word: global.posWords[6]},
-                {word: global.posWords[7]}
-            ],
-            //Stimulus css
-            stimulusCss : {color:'#0000FF','font-size':'2.3em'}
-        },
-        base_url : {//Where are your images at?
-            image : global.baseURL
-        },
-        isTouch : global.$isTouch,
-            
-        remindErrorText : '<p align="center" style="font-size:1em; font-family:arial; color:#000000">' +
-        'Als je een fout maakt verschijnt er een rode <font color="#ff0000"><b>X</b></font> op je scherm. ' +
-        'Druk op de andere toets om verder te gaan.<p/>',
+	var API = new APIconstructor();	
 
-        remindErrorTextTouch : '<p align="center" style="font-size:1.4em; font-family:arial; color:#000000">' +
-        'Als je een fout maakt verschijnt er een rode <font color="#ff0000"><b>X</b></font> op je scherm. ' +
-        'Druk op de andere kant om verder te gaan.<p/>',
+	API.addSettings('canvas',{
+		maxWidth: 500,
+		maxheight: 500,
+		proportions : 1.2,
+		background: '#ffffff',
+		borderWidth: 5,
+		canvasBackground: '#ffffff',
+		borderColor: 'lightblue'
+	});
+	
+	API.addSettings('base_url',{
+			image : global.baseURL
+	});
+	
 
-        leftKeyText : 'Druk op "E" voor', 
-        rightKeyText : 'Druk op "I" voor', 
+	API.addMediaSets('cisgender',[
+		{image:'C1.jpg'},
+		{image:'C2.jpg'},
+		{image:'C3.jpg'},
+		{image:'C4.jpg'}
+	]);
+	
 
-        orText : 'of',
-        
-        finalText : 'Druk op de spatiebalk om verder te gaan', 
-        finalTouchText : 'Druk op het groene vlak om verder te gaan',
+	API.addMediaSets('transgender',[
+		{image:'T1.jpg'},
+		{image:'T2.jpg'},
+		{image:'T3.jpg'},
+		{image:'T4.jpg'}
+	]);
 
-        instAttributePractice: '<div><p align="center" style="font-size:20px; font-family:arial">' +
-				'<font color="#000000"><u>Deel blockNum van de nBlocks </u><br/><br/></p>' +
-				'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
-				'Leg uw linker vinger op de <b>E</b> toets voor de items die bij de categorie <font color="#0000ff">leftAttribute.</font> horen' +
-				'<br/>Leg uw rechter vinger op de <b>I</b> toets voor de items die bij de categorie <font color="#0000ff">rightAttribute</font> horen.<br/><br/>' +
-				'Als u een fout maakt verschijnt er een rode <font color="#ff0000"><b>X</b></font>.' +
-				'Druk op de andere toets om verder te gaan.<br/>' +
-				'<u>Ga zo snel als u kan,</u> maar blijf ook accuraat.<br/><br/></p>'+
-				'<p align="center">Druk op de <b>spatiebalk</b> zodra u klaar bent.</font></p></div>',
+	//Now let's create a basic stimulus with the size we want and the handle we need.
+    API.addStimulusSets({
+        // This Default stimulus is inherited by the other stimuli so that we can have a consistent appearance and change it from one place.
+        Default: [
+            {css:{color:'#0000FF','font-size':'2em'}}
+        ],
 
-        instAttributePracticeTouch: [
-            '<div>',
-                '<p align="center">',
-                    '<u>Deel blockNum van de nBlocks</u>',
-                '</p>',
-                '<p align="left" style="margin-left:5px">',
-                    '<br/>',
-                    'Plaats uw linker vinger boven het the <linker>left</b>groene vlak voor items die bij de categorie <font color="#0000ff">leftAttribute</font> horen.<br/>',
-                    'Plaats uw rechter vinger boven het <b>rechter</b> groene vlak voor items die bij de categorie <font color="#0000ff">rightAttribute</font> horen.<br/>',
-                    'Items komen een voor een voorbij<br/>',
-                    '<br/>',
-                    'Als u een fout maakt verschijnt er een rode <font color="#ff0000"><b>X</b></font>. Raak de andere kant aan. <u>Ga zo snel als u kan,</u> maar blijf ook accuraat.',
-                '</p>',
-                '<p align="center">Druk op het <b>benedenstaande</b> groene vlak om te beginnen.</p>',
-            '</div>'
-        ].join('\n'),
+        // This sets the appearance for the instructions.
+        Instructions: [
+            {css:{'font-size':'1.3em',color:'white', lineHeight:1.2},handle:'instructions'}
+        ],
+        cisgender: [
+            {data:{group:'transgender', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'cisgender'}}},
+            {data:{group:'transgender', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'cisgender'}}},
+            {data:{group:'transgender', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'cisgender'}}},
+            {data:{group:'transgender', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'cisgender'}}}
+        ],
+        transgender : [
+            {data:{group:'cisgender', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'transgender'}}},
+            {data:{group:'cisgender', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'transgender'}}},
+            {data:{group:'cisgender', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'transgender'}}},
+            {data:{group:'cisgender', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'transgender'}}}
+        ],
 
-        instCategoriesPractice: '<div><p align="center" style="font-size:20px; font-family:arial">' +
-				'<font color="#000000"><u>Deel blockNum van de nBlocks </u><br/><br/></p>' +
-				'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
-				'Leg uw linker vinger op de <b>E</b> toets voor de items die bij de categorie <font color="#336600">leftCategory</font> horen. ' +
-				'<br/>Leg uw rechter vinger op de <b>I</b> toets voor de items die bij de categorie <font color="#336600">rightCategory</font> horen.<br/>' +
-				'Items komen een voor een voorbij.<br/><br/>' +
-				'Als u een fout maakt verschijnt er een rode <font color="#ff0000"><b>X</b></font>. ' +
-				'Klik op de andere toets om door te gaan.<br/>' +
-				'<u>Ga zo snel als u kan,</u> maar blijf ook accuraat.<br/><br/></p>'+
-				'<p align="center">Druk op de <b>spatiebalk</b> wanneer u klaar bent om te beginnen.</font></p></div>',
-			
-        instCategoriesPracticeTouch: [
-            '<div>',
-                '<p align="center">',
-                    '<u>Deel blockNum van de nBlocks</u>',
-                '</p>',
-                '<p align="left" style="margin-left:5px">',
-                    '<br/>',
-                    'Plaats uw linker vinger boven het <b>linker</b> groene vlak voor items die bij de categorie <font color="#336600">leftCategory</font> horen.<br/>',
-                    'Plaats uw rechter vinger boven het <b>rechter</b> groene vlak voor items die bij de categorie <font color="#336600">rightCategory</font> horen.<br/>',
-                    'Items komen een voor een voorbij<br/>',
-                    '<br/>',
-                    'Als u een fout maakt verschijnt er een rode <font color="#ff0000"><b>X</b></font>. Raak de andere kant aan. <u>Ga zo snel als u kan,</u> maar blijf ook accuraat.',
-                '</p>',
-                '<p align="center">Druk op het <b>benedenstaande</b> groene vlak om te beginnen.</p>',
-            '</div>'
-        ].join('\n'),
+        // #### Feedback
+        // This stimulus is used for giving feedback, in this case only an error notification
+        feedback : [{handle:'error', location: {top: 50}, css:{color:'red','font-size':'4em'}, media: {word:'X'}, nolog:true}],
 
-        instFirstCombined : '<div><p align="center" style="font-size:20px; font-family:arial">' +
-            '<font color="#000000"><u>Deel blockNum van de nBlocks </u><br/><br/></p>' +
-            '<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
-            'Gebruik de <b>E</b> toets voor <font color="#336600">leftCategory</font> en voor <font color="#0000ff">leftAttribute</font>.<br/>' +
-            'Gebruik de <b>I</b> toets voor <font color="#336600">rightCategory</font> en voor <font color="#0000ff">rightAttribute</font>.<br/>' +
-            'Elk item hoort maar bij een categorie.<br/><br/>' +
-            'Als u een fout maakt verschijnt er een rode <font color="#ff0000"><b>X</b></font>. ' +
-            'Klik op de andere toets om door te gaan.<br/>' + 
-            '<u>Ga zo snel als u kan,</u> maar blijf ook accuraat.<br/><br/></p>' +
-            '<p align="center">Druk op de <b>spatiebalk</b> wanneer u klaar bent om te beginnen.</font></p></div>',
-        instFirstCombinedTouch:[
-            '<div>',
-                '<p align="center">',
-                    '<u>Deel blockNum van de nBlocks</u>',
-                '</p>',
-                '<br/>',
-                '<br/>',
-                '<p align="left" style="margin-left:5px">',
-                    'Plaats uw linker vinger boven het <b>linker</b> groene vlak voor items die bij de categorie</font> items en voor <font color= horen"#0000ff">leftAttribute</font>.</br>',
-                    'Plaats uw rechter vinger boven het <b>rechter</b> groene vlak voor items die bij de categorie</font> items en voor <font color= horen"#0000ff">rightAttribute</font>.</br>',
-                        'Als u een fout maakt verschijnt er een rode <font color="#ff0000"><b>X</b></font>. Raak de andere kant aan. <u>Ga zo snel als u kan,</u> maar blijf ook accuraat.</br>',
-                    '</p>',
-                    '<p align="center">Druk op het <b>benedenstaande</b> groene vlak om te beginnen.</p>',
-            '</div>'
-        ].join('\n'),
-
-        instSecondCombined : '<div><p align="center" style="font-size:20px; font-family:arial">' +
-            '<font color="#000000"><u>Deel blockNum van de nBlocks </u><br/><br/></p>' +
-            '<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
-            'Dit is hetzelfde als het vorige onderdeel.<br/>' +
-            'Gebruik de <b>E</b> toets voor <font color="#336600">leftCategory</font> en voor <font color="#0000ff">leftAttribute</font>.<br/>' +
-            'Gebruik de <b>I</b> toets voor <font color="#336600">rightCategory</font> en voor <font color="#0000ff">rightAttribute</font>.<br/>' +
-            'Elk item hoort maar bij een categorie.<br/><br/>' +
-            '<u>Ga zo snel als u kan,</u> maar blijf ook accuraat.<br/><br/></p>' +
-            '<p align="center">Druk op de <b>spatiebalk</b> wanneer u klaar bent om te beginnen.</font></p></div>',
-        instSecondCombinedTouch:[
-            '<div>',
-                '<p align="center"><u>Deel blockNum van de nBlocks</u></p>',
-                '<br/>',
-                '<br/>',
-
-                '<p align="left" style="margin-left:5px">',
-                    'Plaats uw linker vinger boven het <b>linker</b> groene vlak voor items die bij de categorie</font> items en voor <font color= horen"#0000ff">leftAttribute</font>.<br/>',
-                    'Plaats uw rechter vinger boven het <b>rechter</b> groene vlak voor items die bij de categorie</font> items en voor <font color= horen"#0000ff">rightAttribute</font>.<br/>',
-                    '<br/>',
-                    '<u>Ga zo snel als u kan,</u> maar blijf ook accuraat.<br/>',
-                '</p>',
-                '<p align="center">Druk op het <b>benedenstaande</b> groene vlak om te beginnen.</p>',
-            '</div>'
-        ].join('\n'),
-
-        instSwitchCategories : '<div><p align="center" style="font-size:20px; font-family:arial">' +
-            '<font color="#000000"><u>Deel blockNum van de nBlocks </u><br/><br/></p>' +
-            '<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
-            '<b>Let op, de labels zijn van positie veranderd!</b><br/>' +
-            'Gebruik uw linker vinger voor de <b>E</b> toets voor de categorie: <font color="#336600">leftCategory</font>.<br/>' +
-            'Gebruik uw rechter vinger voor de <b>I</b> toets voor de categorie: <font color="#336600">rightCategory</font>.<br/><br/>' +
-            '<u>Ga zo snel als u kan,</u> maar blijf ook accuraat.<br/><br/></p>' +
-            '<p align="center">Druk op de <b>spatiebalk</b> wanneer u klaar bent om te beginnen.</font></p></div>',
-        instSwitchCategoriesTouch: [
-            '<div>',
-                '<p align="center">',
-                    '<u>Deel blockNum van de nBlocks</u>',
-                '</p>',
-                '<p align="left" style="margin-left:5px">',
-                    '<br/>',
-                    'Let op, de labels zijn van positie veranderd!<br/>',
-                        'Plaats uw linker vinger boven het <b>linker</b> groene vlak voor items die bij de categorie <font color="#336600">leftCategory</font> horen.<br/>',
-                        'Plaats uw rechter vinger boven het <b>rechter</b> groene vlak voor items die bij de categorie <font color="#336600">rightCategory</font> horen.<br/>',
-                        'Items komen een voor een voorbij',
-                        '<br/>',
-                        'Als u een fout maakt verschijnt er een rode <font color="#ff0000"><b>X</b></font>. Raak de andere kant aan. <u>Ga zo snel als u kan,</u> maar blijf ook accuraat.<br/>',
-                    '</p>',
-                    '<p align="center">Druk op het <b>benedenstaande</b> groene vlak om te beginnen.</p>',
-            '</div>'
-        ].join('\n'),
+		layout: [
+			{media:{word:'Press the i key for transgender and e key for cisgender'}, css : {color:'black'}, location:{bottom:0}},
+			{media:{word:'Cisgender'},location:{left:-1,top:3},css:{background:'white',color: 'black', padding:'5%',fontSize:'1.5em'}},
+			{media:{word:'Transgender'},location:{right:-1,top:3},css:{background:'white',color: 'black',padding:'5%',fontSize:'1.5em'}}
+		]
     });
+	
+	API.addTrialSets('base',[{
+		data: {score:0},
+		input: [
+		    {handle:'enter',on:'enter'},
+			{handle:'cisgender',on:'keypressed',key:'e'},
+			{handle:'transgender',on:'keypressed',key:'i'},
+			{handle:'left',on:'leftTouch',touch:true},
+            {handle:'right',on:'rightTouch',touch:true}
+		],
+		layout: [
+			{media:{word:'Press the i key for transgender and e key for cisgender'}, css : {color:'black'}, location:{bottom:0}},
+			{media:{word:'Cisgender'},location:{left:0,top:3},css:{background:'white',color: 'black', padding:'2%',fontSize:'1.5em'}},
+			{media:{word:'Transgender'},location:{right:0,top:3},css:{background:'white',color: 'black',padding:'2%',fontSize:'1.5em'}}
+		],	
+		
+
+		interactions: [
+			// Display the target stimulus.
+			{
+				conditions:[{type:'begin'}],
+				actions: [{type:'showStim', handle: 'target'}]
+			},
+			// Correct response actions
+			{
+				conditions: [
+					{type:'inputEqualsTrial',property:'group'}
+				],
+				actions: [
+					{type:'setTrialAttr', setter:{score:0}},
+					{type:'log'},
+					{type:'trigger', handle:'ITI'}
+				]
+			},
+            {
+                // Error
+                conditions: [
+                    {type:'inputEquals',value:['cisgender','transgender']},
+                    {type:'inputEqualsStim',property:'group',negate:true}
+                ],
+                actions: [
+                    {type:'showStim',handle:'error'},
+                    {type:'setTrialAttr', setter:{score:1}}
+                ]
+            },			
+			// Incorrect response actions
+			{
+				conditions: [
+					{type:'inputEqualsTrial',property:'group',negate:true},
+					{type:'inputEquals',value:['cisgender','transgender']}
+				],
+				actions: [
+					{type:'showStim',handle:'error'},
+                    {type:'setTrialAttr', setter:{score:1}},
+					{type:'log'},
+					{type:'removeInput',handle:['cisgender','transgender']},
+					{type:'trigger', handle:'ITI'}
+				]
+			},
+			// Inter trial interval
+			{
+				conditions: [{type:'inputEquals', value:'ITI'}],
+				actions:[
+					{type:'hideStim',handle:'All'},
+					{type:'removeInput',handle:['cisgender','transgender']},
+					{type:'trigger', handle:'end',duration:200}
+				]
+			},
+			// End trial
+			{
+				conditions: [{type:'inputEquals', value:'end'}],
+				actions:[
+					{type:'endTrial'}
+				]
+			}
+		]
+	}]);
+
+		API.addTrialSets('inst',{
+		input: [
+			{handle:'space',on:'space'} //Will handle a SPACEBAR response
+		],
+		interactions: [
+			{ // begin trial
+				conditions: [{type:'begin'}],
+				actions: [{type:'showStim',handle:'All'}] //Show the instructions
+			},
+			{
+				conditions: [{type:'inputEquals',value:'space'}], //What to do when space is pressed
+				actions: [
+					{type:'hideStim',handle:'All'}, //Hide the instructions
+					{type:'setInput',input:{handle:'endTrial', on:'timeout',duration:500}} //In 500ms: end the trial. In the mean time, we get a blank screen.
+				]
+			},
+			{
+				conditions: [{type:'inputEquals',value:'endTrial'}], //What to do when endTrial is called.
+				actions: [
+					{type:'endTrial'} //End the trial
+				]
+			}
+		]
+	});
+	
+	API.addTrialSets('cisgender',[{
+		inherit:'base',
+		data: {group:'cisgender', condition:'cisgender'},
+		stimuli: [
+			{
+				inherit : 'cisgender', 
+				media : {inherit:{set:'cisgender',type:'exRandom'}}
+			},
+		    {inherit:{type:'random',set:'feedback'}}
+		]
+	}]);
+
+
+	API.addTrialSets('transgender',[{
+		inherit:'base',
+		data: {group:'transgender', condition:'transgender'},
+		stimuli: [
+			{
+				inherit : 'transgender', 
+				media : {inherit:{set:'transgender',type:'exRandom'}} 
+			},
+			{inherit:{type:'random',set:'feedback'}}
+		]
+	}]);
+
+	API.addSequence([
+		{
+			inherit : 'inst', 
+			stimuli: [
+				{
+					media:{html:
+				'<div>' +
+				'<p align="center"><u>Categorization Task</u></p>' +
+				'<br/>' +
+				'Please place one finger on the <b>E</b> key and another finger on the <b>I</b> key of the keyboard. ' +
+				'If the person is transgender, press the <b>I</b> key. If the person is cisgender, press the <b>E</b> key. ' +
+				'Images will apear one at a time.<br/><br/>' +
+				'<p align="center">Press the <b>space bar</b> to begin.</p>' +
+			'</div>'},
+					css : {color:'black', padding:'3%'}
+				}
+			]			
+		},
+		{
+			mixer: 'random',
+			data: [
+				{
+					mixer: 'repeat',
+					times: 12,
+					data: [
+						{inherit:'cisgender', data : {block:1}},
+						{inherit:'transgender', data : {block:1}}
+					]
+				}
+			]
+		},
+		{
+			inherit : 'inst', 
+			data: {blockStart:true},
+			stimuli: [
+				{
+					media:{word:'You have finished this portion of the study. Press the space bar to continue.'}, 
+					css : {color:'black', padding:'3%'}
+				}
+			]			
+		}
+	]);
+	return API.script;
 });
+/* don't forget to close the define wrapper */
+
+
+
+
 
 
