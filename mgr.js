@@ -96,7 +96,7 @@ define(['managerAPI',
             header: 'Implicit Association Test'
         }],
 	    
-	    trial__genderiat: [{
+	    trial_genderiat: [{
 		type: 'time',
 		name: 'trial_genderiat',
 		scriptUrl: 'trial_genderiat.js'
