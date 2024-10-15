@@ -80,10 +80,10 @@ define(['questAPI'], function(Quest){
         ]
     });
 
-    API.addQuestionsSet('age', {
+    API.addQuestionsSet('uniek', {
         inherit : 'basicText',
-        name: 'age',
-        stem: 'Hoe oud bent u?'
+        name: 'uniek',
+        stem: 'Voer hier de unieke code in die u heeft gegenereerd in de vragenlijst hiervoor.'
     })
 	
     API.addQuestionsSet('thermBlack',{
@@ -105,7 +105,7 @@ define(['questAPI'], function(Quest){
                 
 		{
                     inherit:'basicPage', 
-                    questions: [{inherit:'age'}]
+                    questions: [{inherit:'uniek'}]
                 }
             ]
         }
