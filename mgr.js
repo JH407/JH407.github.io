@@ -96,10 +96,10 @@ define(['managerAPI',
             header: 'Implicit Association Test'
         }],
 	    
-	    trial_genderiat: [{
+	    sortingtask: [{
 		type: 'time',
-		name: 'trial_genderiat',
-		scriptUrl: 'trial_genderiat.js'
+		name: 'sortingtask',
+		scriptUrl: 'sortingtask.js'
 	}],
 	    
 	    full_instructions: [{
@@ -198,7 +198,7 @@ define(['managerAPI',
                         {inherit: 'genderiat_instructions'},
 			{inherit: 'genderiat_instructionscis'},
 			{inherit: 'trial_instructions'},
-			{inherit: 'trial_genderiat'},
+			{inherit: 'sortingtask'},
 			{inherit: 'full_instructions'},  
                         {inherit: 'genderiat'}
                     ]
