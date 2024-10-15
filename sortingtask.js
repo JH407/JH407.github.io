@@ -18,7 +18,7 @@ define(['pipAPI'], function(APIconstructor) {
 	});
 	
 
-	API.addMediaSets('cisgender',[
+	API.addMediaSets('global.cisgenderLabels',[
 		{image:'C1.jpg'},
 		{image:'C2.jpg'},
 		{image:'C3.jpg'},
@@ -26,7 +26,7 @@ define(['pipAPI'], function(APIconstructor) {
 	]);
 	
 
-	API.addMediaSets('transgender',[
+	API.addMediaSets('global.transgenderLabels',[
 		{image:'T1.jpg'},
 		{image:'T2.jpg'},
 		{image:'T3.jpg'},
@@ -44,17 +44,17 @@ define(['pipAPI'], function(APIconstructor) {
         Instructions: [
             {css:{'font-size':'1.3em',color:'white', lineHeight:1.2},handle:'instructions'}
         ],
-        cisgender: [
-            {data:{group:'transgender', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'cisgender'}}},
-            {data:{group:'transgender', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'cisgender'}}},
-            {data:{group:'transgender', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'cisgender'}}},
-            {data:{group:'transgender', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'cisgender'}}}
+        global.cisgenderLabels: [
+            {data:{group:'global.transgenderLabels', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'global.cisgenderLabels'}}},
+            {data:{group:'global.transgenderLabels', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'global.cisgenderLabels'}}},
+            {data:{group:'global.transgenderLabels', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'global.cisgenderLabels'}}},
+            {data:{group:'global.transgenderLabels', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'global.cisgenderLabels'}}}
         ],
-        transgender : [
-            {data:{group:'cisgender', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'transgender'}}},
-            {data:{group:'cisgender', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'transgender'}}},
-            {data:{group:'cisgender', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'transgender'}}},
-            {data:{group:'cisgender', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'transgender'}}}
+        global.transgenderLabels : [
+            {data:{group:'global.cisgenderLabels', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'global.transgenderLabels'}}},
+            {data:{group:'global.cisgenderLabels', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'global.transgenderLabels'}}},
+            {data:{group:'global.cisgenderLabels', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'global.transgenderLabels'}}},
+            {data:{group:'global.cisgenderLabels', handle:'target'}, inherit:'Default', media: {inherit:{type:'exRandom',set:'global.transgenderLabels'}}}
         ],
 
         // #### Feedback
@@ -63,8 +63,8 @@ define(['pipAPI'], function(APIconstructor) {
 
 		layout: [
 			{media:{word:'Press the i key for transgender and e key for cisgender'}, css : {color:'black'}, location:{bottom:0}},
-			{media:{word:'Cisgender'},location:{left:-1,top:3},css:{background:'white',color: 'black', padding:'5%',fontSize:'1.5em'}},
-			{media:{word:'Transgender'},location:{right:-1,top:3},css:{background:'white',color: 'black',padding:'5%',fontSize:'1.5em'}}
+			{media:{word:'global.cisgenderLabels'},location:{left:-1,top:3},css:{background:'white',color: 'black', padding:'5%',fontSize:'1.5em'}},
+			{media:{word:'global.transgenderLabels'},location:{right:-1,top:3},css:{background:'white',color: 'black',padding:'5%',fontSize:'1.5em'}}
 		]
     });
 	
@@ -72,15 +72,15 @@ define(['pipAPI'], function(APIconstructor) {
 		data: {score:0},
 		input: [
 		    {handle:'enter',on:'enter'},
-			{handle:'cisgender',on:'keypressed',key:'e'},
-			{handle:'transgender',on:'keypressed',key:'i'},
+			{handle:'global.cisgenderLabels',on:'keypressed',key:'e'},
+			{handle:'global.transgenderLabels',on:'keypressed',key:'i'},
 			{handle:'left',on:'leftTouch',touch:true},
             {handle:'right',on:'rightTouch',touch:true}
 		],
 		layout: [
 			{media:{word:'Press the i key for transgender and e key for cisgender'}, css : {color:'black'}, location:{bottom:0}},
-			{media:{word:'Cisgender'},location:{left:0,top:3},css:{background:'white',color: 'black', padding:'2%',fontSize:'1.5em'}},
-			{media:{word:'Transgender'},location:{right:0,top:3},css:{background:'white',color: 'black',padding:'2%',fontSize:'1.5em'}}
+			{media:{word:'global.cisgenderLabels'},location:{left:0,top:3},css:{background:'white',color: 'black', padding:'2%',fontSize:'1.5em'}},
+			{media:{word:'global.transgenderLabels'},location:{right:0,top:3},css:{background:'white',color: 'black',padding:'2%',fontSize:'1.5em'}}
 		],	
 		
 
@@ -104,7 +104,7 @@ define(['pipAPI'], function(APIconstructor) {
             {
                 // Error
                 conditions: [
-                    {type:'inputEquals',value:['cisgender','transgender']},
+                    {type:'inputEquals',value:['global.cisgenderLabels','global.transgenderLabels']},
                     {type:'inputEqualsStim',property:'group',negate:true}
                 ],
                 actions: [
@@ -116,13 +116,13 @@ define(['pipAPI'], function(APIconstructor) {
 			{
 				conditions: [
 					{type:'inputEqualsTrial',property:'group',negate:true},
-					{type:'inputEquals',value:['cisgender','transgender']}
+					{type:'inputEquals',value:['global.cisgenderLabels','global.transgenderLabels']}
 				],
 				actions: [
 					{type:'showStim',handle:'error'},
                     {type:'setTrialAttr', setter:{score:1}},
 					{type:'log'},
-					{type:'removeInput',handle:['cisgender','transgender']},
+					{type:'removeInput',handle:['global.cisgenderLabels','global.transgenderLabels']},
 					{type:'trigger', handle:'ITI'}
 				]
 			},
@@ -131,7 +131,7 @@ define(['pipAPI'], function(APIconstructor) {
 				conditions: [{type:'inputEquals', value:'ITI'}],
 				actions:[
 					{type:'hideStim',handle:'All'},
-					{type:'removeInput',handle:['cisgender','transgender']},
+					{type:'removeInput',handle:['global.cisgenderLabels','global.transgenderLabels']},
 					{type:'trigger', handle:'end',duration:200}
 				]
 			},
@@ -170,26 +170,26 @@ define(['pipAPI'], function(APIconstructor) {
 		]
 	});
 	
-	API.addTrialSets('cisgender',[{
+	API.addTrialSets('global.cisgenderLabels',[{
 		inherit:'base',
-		data: {group:'cisgender', condition:'cisgender'},
+		data: {group:'global.cisgenderLabels', condition:'global.cisgenderLabels'},
 		stimuli: [
 			{
-				inherit : 'cisgender', 
-				media : {inherit:{set:'cisgender',type:'exRandom'}}
+				inherit : 'global.cisgenderLabels', 
+				media : {inherit:{set:'global.cisgenderLabels',type:'exRandom'}}
 			},
 		    {inherit:{type:'random',set:'feedback'}}
 		]
 	}]);
 
 
-	API.addTrialSets('transgender',[{
+	API.addTrialSets('global.transgenderLabels',[{
 		inherit:'base',
-		data: {group:'transgender', condition:'transgender'},
+		data: {group:'global.transgenderLabels', condition:'global.transgenderLabels'},
 		stimuli: [
 			{
-				inherit : 'transgender', 
-				media : {inherit:{set:'transgender',type:'exRandom'}} 
+				inherit : 'global.transgenderLabels', 
+				media : {inherit:{set:'global.transgenderLabels',type:'exRandom'}} 
 			},
 			{inherit:{type:'random',set:'feedback'}}
 		]
@@ -221,8 +221,8 @@ define(['pipAPI'], function(APIconstructor) {
 					mixer: 'repeat',
 					times: 12,
 					data: [
-						{inherit:'cisgender', data : {block:1}},
-						{inherit:'transgender', data : {block:1}}
+						{inherit:'global.cisgenderLabels', data : {block:1}},
+						{inherit:'global.transgenderLabels', data : {block:1}}
 					]
 				}
 			]
