@@ -204,10 +204,11 @@ define(['pipAPI'], function(APIconstructor) {
 				'<div>' +
 				'<p align="center"><u>Categorization Task</u></p>' +
 				'<br/>' +
-				'Please place one finger on the <b>E</b> key and another finger on the <b>I</b> key of the keyboard. ' +
-				'If the person is transgender, press the <b>I</b> key. If the person is cisgender, press the <b>E</b> key. ' +
-				'Images will apear one at a time.<br/><br/>' +
-				'<p align="center">Press the <b>space bar</b> to begin.</p>' +
+				'Leg uw linker vinger op de <b>E</b> toets en uw rechter vinger op de <b>I</b> toets. ' +
+				'Als de persoon transgender is, klik op de <b>I</b> toets. Als de persoon cisgender is, klik op de <b>E</b> toets ' +
+				'Items komen een voor een voorbij.<br/><br/>' +	
+				
+				'<p align="center">Klik op de <b>spatiebalk/b> om te beginnen.</p>' +
 			'</div>'},
 					css : {color:'black', padding:'3%'}
 				}
@@ -231,7 +232,7 @@ define(['pipAPI'], function(APIconstructor) {
 			data: {blockStart:true},
 			stimuli: [
 				{
-					media:{word:'You have finished this portion of the study. Press the space bar to continue.'}, 
+					media:{word:'U hebt het oefen gedeelte van de test afgerond. Druk op de spatiebalk om verder te gaan.'}, 
 					css : {color:'black', padding:'3%'}
 				}
 			]			
