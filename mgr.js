@@ -37,24 +37,24 @@ define(['managerAPI',
         //Select randomly what attribute words to see. 
         //Based on Axt, Feng, & Bar-Anan (2021).
         posWords : API.shuffle([
-	    'Liefde', 'Gelukkig', 'Vriendschap', 'Vrede',
-            'Beeldschoon', 'Geluk', 'Dolblij', 'Blij', 
-            'Verliefd', 'Heerlijk', 'Lachen', 'Zalig', 
-            'Prachtig', 'Blijdschap', 'Vreugde', 'Vrolijkheid', 
-            'Geliefd', 'Lief', 'Positief', 'Super', 
-            'Plezier', 'Zonneschijn', 'Stralend', 
-            'Aantrekkelijk', 'Enthousiast', 'Feest', 
-            'Perfect', 'Wonder', 'Zon', 'Talentvol'
+	    'Liefde', 'Blijdschap', 'Vriend', 'Plezier',
+            'Adoreren', 'Vrolijk', 'Vriendschap', 'Blij', 
+            'Glimlachend', 'Koesteren', 'Uitstekend', 'Tevreden', 
+            'Vreugdevol', 'Spectaculair', 'Aantrekkelijk', 'Genieten', 
+            'Enthousiasme', 'Lachen', 'Knap', 'Heerlijk', 
+            'Geweldig', 'Glorierijk', 'Aangenaam', 'Mooi',
+            'Fantastisch', 'Verheugd', 'Lief', 'Excellent',
+            'Vieren', 'Prachtig', 'Magnifiek', 'Overwinning'
         ]), 
         negWords : API.shuffle([
-	    'Doodziek', 'Depressief', 'Doodsangst', 'Haat', 
-            'Misbruik', 'Stervend', 'Verminkt', 'Fataal', 
-            'Haten', 'Ramp', 'Trauma', 'Pesten',
-            'Begrafenis', 'Ongelukkig', 'Levenloos', 
-            'Leugenaar', 'Eenzaamheid', 'Verwoesten', 'Failliet',  
-            'Walging', 'Agressief', 'Mislukking', 'Mismaakt', 
-            'Vernedering', 'Onbetrouwbaar', 'Stelen', 'Wanhoop', 
-            'Vijand', 'Armoede', 'Pijn', 'Bedrog'
+	    'Misbruik', 'Rouw', 'Vergif', 'Verdriet', 
+            'Pijn', 'Verafschuwen', 'Mislukking', 'Vies', 
+            'Boos', 'Afkeer', 'Afschuwelijk', 'Negatief',
+            'Lelijk', 'Vies', 'Goor', 'Slecht',
+            'Verrot', 'Irriteren', 'Ramp', 'Afgrijselijk',  
+            'Minachting', 'Vreselijk', 'Walging', 'Haten', 
+            'Vernedering', 'Egoïstisch', 'Tragisch', 'Hinderlijk', 
+            'Haat', 'Pijnlijk', 'Misselijkmakend', 'Gadver'
         ])
     });
 
