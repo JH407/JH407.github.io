@@ -14,7 +14,7 @@ define(['pipAPI'], function(APIconstructor) {
 	});
 	
 	API.addSettings('base_url',{
-			image : global.baseURL
+			image : '/images/'
 	});
 	
 
