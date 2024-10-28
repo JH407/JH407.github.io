@@ -19,18 +19,18 @@ define(['pipAPI'], function(APIconstructor) {
 	
 
 	API.addMediaSets('cisgender',[
-		{image:'C1.jpg'},
-		{image:'C2.jpg'},
-		{image:'C3.jpg'},
-		{image:'C4.jpg'}
-	]);
-	
-
-	API.addMediaSets('transgender',[
 		{image:'T1.jpg'},
 		{image:'T2.jpg'},
 		{image:'T3.jpg'},
 		{image:'T4.jpg'}
+	]);
+	
+
+	API.addMediaSets('transgender',[
+		{image:'C1.jpg'},
+		{image:'C2.jpg'},
+		{image:'C3.jpg'},
+		{image:'C4.jpg'}
 	]);
 
 	//Now let's create a basic stimulus with the size we want and the handle we need.
