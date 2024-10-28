@@ -198,6 +198,7 @@ define(['managerAPI',
                         {inherit: 'genderiat_instructions'},
 			{inherit: 'genderiat_instructionscis'},
 			{inherit: 'trial_instructions'},
+			    {inherit" 'sortingtask'},
 			{inherit: 'full_instructions'},  
                         {inherit: 'genderiat'}
                     ]
