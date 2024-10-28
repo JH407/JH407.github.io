@@ -62,7 +62,7 @@ define(['pipAPI'], function(APIconstructor) {
         feedback : [{handle:'error', location: {top: 50}, css:{color:'red','font-size':'4em'}, media: {word:'X'}, nolog:true}],
 
 		layout: [
-			{media:{word:'Press the i key for transgender and e key for cisgender'}, css : {color:'black'}, location:{bottom:0}},
+			{media:{word:'Klik op de i toets voor transgender en de e toets voor cisgender'}, css : {color:'black'}, location:{bottom:0}},
 			{media:{word:'Cisgender'},location:{left:-1,top:3},css:{background:'white',color: 'black', padding:'5%',fontSize:'1.5em'}},
 			{media:{word:'Transgender'},location:{right:-1,top:3},css:{background:'white',color: 'black',padding:'5%',fontSize:'1.5em'}}
 		]
@@ -78,7 +78,7 @@ define(['pipAPI'], function(APIconstructor) {
             {handle:'right',on:'rightTouch',touch:true}
 		],
 		layout: [
-			{media:{word:'Press the i key for transgender and e key for cisgender'}, css : {color:'black'}, location:{bottom:0}},
+			{media:{word:'Klik op de i toets voor transgender en de e toets voor cisgender'}, css : {color:'black'}, location:{bottom:0}},
 			{media:{word:'Cisgender'},location:{left:0,top:3},css:{background:'white',color: 'black', padding:'2%',fontSize:'1.5em'}},
 			{media:{word:'Transgender'},location:{right:0,top:3},css:{background:'white',color: 'black',padding:'2%',fontSize:'1.5em'}}
 		],	
@@ -202,13 +202,13 @@ define(['pipAPI'], function(APIconstructor) {
 				{
 					media:{html:
 				'<div>' +
-				'<p align="center"><u>Categorization Task</u></p>' +
+				'<p align="center"><u>Sorteeropdracht</u></p>' +
 				'<br/>' +
 				'Leg uw linker vinger op de <b>E</b> toets en uw rechter vinger op de <b>I</b> toets. ' +
 				'Als de persoon transgender is, klik op de <b>I</b> toets. Als de persoon cisgender is, klik op de <b>E</b> toets ' +
 				'Items komen een voor een voorbij.<br/><br/>' +	
 				
-				'<p align="center">Klik op de <b>spatiebalk/b> om te beginnen.</p>' +
+				'<p align="center">Klik op de <b>spatiebalk<b> om te beginnen.</p>' +
 			'</div>'},
 					css : {color:'black', padding:'3%'}
 				}
